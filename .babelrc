@@ -1,6 +1,7 @@
 {
   "presets": ["env", "react"],
   "ignore": [
+    "*.js",
     "lib/*.js",
     "lib/**/*.js",
     "dist/lib/*.js",

@@ -16,6 +16,7 @@
     "epilogue": "^0.7.1",
     "express": "^4.16.2",
     "jsdom": "^11.3.0",
+    "requestify": "^0.2.5",
     "sequelize": "^4.22.5",
     "sqlite3": "^3.1.13",
     "winston": "^2.4.0"
