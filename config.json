@@ -1,0 +1,21 @@
+{
+  "database": {
+    "createDatabase": true,
+    "enableLogging": true,
+    "storagePath": "./data/db.data"
+  },
+
+  "httpServer": {
+    "port": 8080
+  },
+
+  "importer": {
+    "filePath": "./data/pocket/example.html"
+  },
+
+  "processor": {
+    "contentPath": "./data/content/",
+    "textContentPath": "./data/textcontent/",
+    "cleanOnStart": true
+  }
+}

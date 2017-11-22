@@ -20,16 +20,18 @@ class Bookmarks extends React.Component {
       return (<span>Loading...</span>);
     }
 
-    let bookmarks = this.state.bookmarks.map((bookmark) => {
+    let sortedBookmarks = this.state.bookmarks.sort((a, b) => a.data().contentLengthInCharacters - b.data().contentLengthInCharacters);
+    let bookmarkElements = sortedBookmarks.map((bookmark) => {
       return (
         <li className="bookmark" key={bookmark.data().id}>
-          <a href={bookmark.data().uri}>{bookmark.data().uri}</a></li>
+          <img src={"http://" + bookmark.data().hostname + "/favicon.ico"} />
+          <a href={bookmark.data().url}>{bookmark.data().title}</a> (Length: {bookmark.data().contentLengthInCharacters})</li>
       );
     });
 
     return (
       <ul>
-        {bookmarks}
+        {bookmarkElements}
       </ul>
     );
   }
