@@ -2,7 +2,7 @@
   "database": {
     "createDatabase": true,
     "enableLogging": true,
-    "storagePath": "./data/db.data"
+    "storagePath": "./data/db.sqlite3"
   },
 
   "httpServer": {
@@ -10,7 +10,7 @@
   },
 
   "importer": {
-    "filePath": "./data/pocket/example.html"
+    "filePath": "./data/pocket/single.html"
   },
 
   "processor": {
