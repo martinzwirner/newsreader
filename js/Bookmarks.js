@@ -6,7 +6,7 @@ class Bookmarks extends React.Component {
   }
 
   componentDidMount() {
-    myGlobals.bookmarksCollection.getAll()
+    myGlobals.bookmarksCollection.getAll({ isProcessed: true })
     .then((response) => {
       const bookmarks = response.body();
       this.setState({bookmarks: bookmarks, loaded: true});
