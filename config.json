@@ -5,6 +5,10 @@
     "storagePath": "./data/db.sqlite3"
   },
 
+  "hostManager": {
+    "faviconPath": "./dist/favicons/"
+  },
+
   "httpServer": {
     "port": 8080
   },
