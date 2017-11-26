@@ -15,6 +15,8 @@ const api = restful('http://localhost:8080/api', fetchBackend(fetch));
 
 window.myGlobals = {};
 myGlobals.bookmarksCollection = api.all('bookmarks');
+myGlobals.hostsCollection = api.all('hosts');
+myGlobals.languageCollection = api.all('languages');
 
 document.addEventListener('DOMContentLoaded', function() {
   ReactDOM.render(
