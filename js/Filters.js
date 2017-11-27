@@ -6,6 +6,7 @@ class Filters extends React.Component {
         <HostFilter setFilter={this.props.setFilter} />
         <LanguageFilter setFilter={this.props.setFilter} />
         <LengthFilter setFilter={this.props.setFilter} />
+        <DateFilter setFilter={this.props.setFilter} />
       </div>
     );
     // language, lenght, created
@@ -112,7 +113,7 @@ class LengthFilter extends React.Component {
   setFilter(e) {
 
     const value = e.target.value === "" ? undefined : e.target.value;
-    this.props.setFilter({ contentLengthInCharacters: value });
+    this.props.setFilter({ maxLength: value });
   }
 
   render() {
@@ -121,6 +122,45 @@ class LengthFilter extends React.Component {
       <span>
         Max Length: <input type="text" onChange={this.setFilter.bind(this)} />
       </span>
+    );
+  }
+}
+
+class DateFilter extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  setFilter(e) {
+
+    const selectedValue = e.target.value;
+
+    if (selectedValue === "") {
+
+      this.props.setFilter({ maxAgeInDays: undefined });
+      return;
+    }
+
+    const date = moment().startOf("days").subtract(selectedValue - 1, "days");
+    const realdate = date.toDate();
+    const timestamp = realdate.getTime();
+    this.props.setFilter({ minCreatedAt: realdate });
+  }
+
+  render() {
+
+    return (
+      <select onChange={this.setFilter.bind(this)}>
+        <option value="">Filter by age...</option>
+        <option value="1">Today</option>
+        <option value="2">Yesterday</option>
+        <option value="7">This week</option>
+        <option value="14">Two weeks</option>
+        <option value="30">One month</option>
+        <option value="60">Two months</option>
+      </select>
     );
   }
 }

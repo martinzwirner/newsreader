@@ -20,7 +20,7 @@ class Bookmark extends React.Component {
           <a href={bookmark.data().url}>{bookmark.data().title}</a><br />
           {link.hostname}
         </td>
-        <td>
+        <td className={bookmark.data().languageCode}>
           {bookmark.data().languageCode}
         </td>
         <td>
