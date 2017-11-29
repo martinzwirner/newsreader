@@ -15,7 +15,7 @@ class App extends React.Component {
   setFilter(change) {
 
     //console.log('App.setFilter');
-    this.setState({ filters: change});
+    this.setState({ filters: Object.assign({}, this.state.filters, change)});
   }
 
   render() {
