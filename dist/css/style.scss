@@ -3,60 +3,101 @@ body {
   font-family: "DejaVu Sans", "sans-serif";
   font-size: 9pt;
 
-  .bookmarks {
+  #root {
 
-    .bookmark {
+    width: 720px;
 
-      height: 45px;
+    .options {
 
-      .favicon {
+      select {
+        width: 100px;
+      }
+    }
 
-        height: 100%;
-        width: 45px;
-        float: left;
+    .bookmarks {
 
-        img {
-          position: relative;
-          width: 20px;
-          height: 20px;
-          top: 12px;
-          left: 12px;
+      position: relative;
+      top: 20px;
+
+      .bookmark {
+
+        border: 1px solid #ccc;
+        height: 45px;
+        margin-bottom: 5px;
+        padding: 5px;
+
+        .favicon {
+
+          height: 100%;
+          width: 45px;
+          float: left;
+
+          img {
+            position: relative;
+            width: 20px;
+            height: 20px;
+            top: 12px;
+            left: 12px;
+          }
         }
-      }
 
-      .link {
-        height: 50%;
-        font-size: 120%;
-        font-weight: bold;
-      }
-
-      .metaData {
-        height: 50%;
-
-        div {
-          float:left;
-          color: #666;
+        .link {
+          height: 50%;
+          font-size: 120%;
+          font-weight: bold;
           overflow: hidden;
-          white-space:nowrap;
+          white-space: nowrap;
+        }
 
-          &.hostname {
-            width: 200px;
+        .metaData {
+          height: 50%;
+          font-weight:bold;
+
+          div {
+            float: left;
+            color: #666;
+            overflow: hidden;
+            white-space: nowrap;
+
+            &.hostname {
+              width: 200px;
+            }
+
+            &.languageCode {
+              width: 50px;
+
+              &.deu {
+                color:#393;
+              }
+              &.eng {
+                color:#f33;
+              }
+            }
+
+            &.contentLength {
+              width: 50px;
+            }
+
+            &.priority {
+              width: 50px;
+            }
+
+            &.createdAt {
+              width: 100px;
+            }
           }
+        }
 
-          &.languageCode {
-            width: 50px;
-          }
+        .actions {
 
-          &.contentLength {
-            width: 50px;
-          }
+          height: 100%;
+          width: 45px;
+          float:right;
 
-          &.priority {
-            width: 50px;
-          }
-
-          &.createdAt {
-            width: 100px;
+          button {
+            position: relative;
+            top: 12px;
+            left: 12px;
           }
         }
       }

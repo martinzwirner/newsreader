@@ -17,11 +17,13 @@ class Bookmarks extends React.Component {
 
   loadData(props) {
 
-    const filters = props.data;
-    filters.isProcessed = true;
-    console.log('filters: ', filters);
+    const params = props.data;
+    params.isProcessed = true;
+    params.isViewed = false;
+    params.orderby = props.sorting;
+    console.log('params: ', params);
 
-    myGlobals.bookmarksCollection.getAll(filters)
+    myGlobals.bookmarksCollection.getAll(params)
     .then((response) => {
       const bookmarks = response.body();
       this.setState({bookmarks: bookmarks, loaded: true});
@@ -37,9 +39,8 @@ class Bookmarks extends React.Component {
 
     console.log('render');
 
-    let sortedBookmarks = this.state.bookmarks.sort((a, b) => a.data().calculatedPriority - b.data().calculatedPriority);
-    let bookmarkElements = sortedBookmarks.map((bookmark) => {
-
+    //let sortedBookmarks = this.state.bookmarks.sort((a, b) => a.data().calculatedPriority - b.data().calculatedPriority);
+    let bookmarkElements = this.state.bookmarks.map((bookmark) => {
       return <Bookmark key={bookmark.data().id} data={bookmark} />;
     });
 

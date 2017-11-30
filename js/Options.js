@@ -1,8 +1,9 @@
-class Filters extends React.Component {
+class Options extends React.Component {
 
   render() {
     return (
-      <div className='filters'>
+      <div className='options'>
+        <Sorting setSorting={this.props.setSorting} />
         <HostFilter setFilter={this.props.setFilter} />
         <LanguageFilter setFilter={this.props.setFilter} />
         <LengthFilter setFilter={this.props.setFilter} />
@@ -10,6 +11,34 @@ class Filters extends React.Component {
       </div>
     );
     // language, lenght, created
+  }
+}
+
+class Sorting extends React.Component {
+
+  setSorting(e) {
+
+    const selectedValue = e.target.value;
+
+    if (selectedValue === "") {
+
+      this.props.setSorting();
+      return;
+    }
+
+    this.props.setSorting(selectedValue);
+  }
+
+  render() {
+
+    return (
+      <select onChange={this.setSorting.bind(this)}>
+        <option value="">Sort by...</option>
+        <option value="title">Title</option>
+        <option value="contentLengthInCharacters">Content length</option>
+        <option value="-createdAt">Date added</option>
+      </select>
+    );
   }
 }
 

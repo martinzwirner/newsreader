@@ -5,6 +5,14 @@ class Bookmark extends React.Component {
     this.state = {};
   }
 
+  markAsDone() {
+
+    const bookmark = this.props.data;
+    bookmark.data().isViewed = true;
+    bookmark.save();
+    // TODO: remove from list!
+  }
+
   render() {
 
     const bookmark = this.props.data;
@@ -14,16 +22,18 @@ class Bookmark extends React.Component {
     return (
       <div className="bookmark" key={bookmark.data().id}>
         <div className="favicon"><img src={"favicons/" + link.hostname + ".ico"} /></div>
+        <div className="actions">
+          <button className="markAsDone" onClick={this.markAsDone.bind(this)}>r</button>
+        </div>
         <div className="link"><a href={bookmark.data().url}>{bookmark.data().title}</a></div>
         <div className="metaData">
           <div className="hostname">{link.hostname}</div>
           <div className={'languageCode ' + bookmark.data().languageCode}>{bookmark.data().languageCode || "?"}</div>
           <div className="contentLength">{bookmark.data().contentLengthInCharacters}</div>
-          <div className="priority">{Math.round(bookmark.data().calculatedPriority)}</div>
+          <div className="priority">{bookmark.data().priorityValue}</div>
           <div className="createdAt">{moment(bookmark.data().createdAt).format("DD.MM.YYYY")}</div>
         </div>
       </div>
-
     );
   }
 }

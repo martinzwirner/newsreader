@@ -1,38 +1,63 @@
 body {
   font-family: "DejaVu Sans", "sans-serif";
   font-size: 9pt; }
-  body .bookmarks .bookmark {
-    height: 45px; }
-    body .bookmarks .bookmark .favicon {
-      height: 100%;
-      width: 45px;
-      float: left; }
-      body .bookmarks .bookmark .favicon img {
-        position: relative;
-        width: 20px;
-        height: 20px;
-        top: 12px;
-        left: 12px; }
-    body .bookmarks .bookmark .link {
-      height: 50%;
-      font-size: 120%;
-      font-weight: bold; }
-    body .bookmarks .bookmark .metaData {
-      height: 50%; }
-      body .bookmarks .bookmark .metaData div {
-        float: left;
-        color: #666;
-        overflow: hidden;
-        white-space: nowrap; }
-        body .bookmarks .bookmark .metaData div.hostname {
-          width: 200px; }
-        body .bookmarks .bookmark .metaData div.languageCode {
-          width: 50px; }
-        body .bookmarks .bookmark .metaData div.contentLength {
-          width: 50px; }
-        body .bookmarks .bookmark .metaData div.priority {
-          width: 50px; }
-        body .bookmarks .bookmark .metaData div.createdAt {
-          width: 100px; }
+  body #root {
+    width: 720px; }
+    body #root .options select {
+      width: 100px; }
+    body #root .bookmarks {
+      position: relative;
+      top: 20px; }
+      body #root .bookmarks .bookmark {
+        border: 1px solid #ccc;
+        height: 45px;
+        margin-bottom: 5px;
+        padding: 5px; }
+        body #root .bookmarks .bookmark .favicon {
+          height: 100%;
+          width: 45px;
+          float: left; }
+          body #root .bookmarks .bookmark .favicon img {
+            position: relative;
+            width: 20px;
+            height: 20px;
+            top: 12px;
+            left: 12px; }
+        body #root .bookmarks .bookmark .link {
+          height: 50%;
+          font-size: 120%;
+          font-weight: bold;
+          overflow: hidden;
+          white-space: nowrap; }
+        body #root .bookmarks .bookmark .metaData {
+          height: 50%;
+          font-weight: bold; }
+          body #root .bookmarks .bookmark .metaData div {
+            float: left;
+            color: #666;
+            overflow: hidden;
+            white-space: nowrap; }
+            body #root .bookmarks .bookmark .metaData div.hostname {
+              width: 200px; }
+            body #root .bookmarks .bookmark .metaData div.languageCode {
+              width: 50px; }
+              body #root .bookmarks .bookmark .metaData div.languageCode.deu {
+                color: #393; }
+              body #root .bookmarks .bookmark .metaData div.languageCode.eng {
+                color: #f33; }
+            body #root .bookmarks .bookmark .metaData div.contentLength {
+              width: 50px; }
+            body #root .bookmarks .bookmark .metaData div.priority {
+              width: 50px; }
+            body #root .bookmarks .bookmark .metaData div.createdAt {
+              width: 100px; }
+        body #root .bookmarks .bookmark .actions {
+          height: 100%;
+          width: 45px;
+          float: right; }
+          body #root .bookmarks .bookmark .actions button {
+            position: relative;
+            top: 12px;
+            left: 12px; }
 
 /*# sourceMappingURL=style.css.map */
