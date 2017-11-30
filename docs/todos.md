@@ -2,8 +2,12 @@ entwurf! abschätzung!
 github!
 eslint
 
+bug: multiple filters at the same time
+save filter settings! local storage?
 import from frontend
 improve list layout
+make list sortable
+items with length 0
 add button to mark as read
 save filters / provide preconfigured filters
 tags importieren

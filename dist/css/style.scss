@@ -1,0 +1,65 @@
+body {
+
+  font-family: "DejaVu Sans", "sans-serif";
+  font-size: 9pt;
+
+  .bookmarks {
+
+    .bookmark {
+
+      height: 45px;
+
+      .favicon {
+
+        height: 100%;
+        width: 45px;
+        float: left;
+
+        img {
+          position: relative;
+          width: 20px;
+          height: 20px;
+          top: 12px;
+          left: 12px;
+        }
+      }
+
+      .link {
+        height: 50%;
+        font-size: 120%;
+        font-weight: bold;
+      }
+
+      .metaData {
+        height: 50%;
+
+        div {
+          float:left;
+          color: #666;
+          overflow: hidden;
+          white-space:nowrap;
+
+          &.hostname {
+            width: 200px;
+          }
+
+          &.languageCode {
+            width: 50px;
+          }
+
+          &.contentLength {
+            width: 50px;
+          }
+
+          &.priority {
+            width: 50px;
+          }
+
+          &.createdAt {
+            width: 100px;
+          }
+        }
+      }
+    }
+  }
+}

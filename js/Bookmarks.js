@@ -44,21 +44,9 @@ class Bookmarks extends React.Component {
     });
 
     return (
-      <table>
-        <thead>
-        <tr>
-          <th></th>
-          <th>Title / Host</th>
-          <th>Language</th>
-          <th>Length</th>
-          <th>Priority</th>
-          <th>Created</th>
-        </tr>
-        </thead>
-        <tbody>
-          {bookmarkElements}
-        </tbody>
-      </table>
+      <div className="bookmarks">
+        {bookmarkElements}
+      </div>
     );
   }
 };

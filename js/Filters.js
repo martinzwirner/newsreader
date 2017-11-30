@@ -139,7 +139,7 @@ class DateFilter extends React.Component {
 
     if (selectedValue === "") {
 
-      this.props.setFilter({ maxAgeInDays: undefined });
+      this.props.setFilter({ minCreatedAt: undefined });
       return;
     }
 
