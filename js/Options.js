@@ -3,11 +3,11 @@ class Options extends React.Component {
   render() {
     return (
       <div className='options'>
-        <Sorting setSorting={this.props.setSorting} />
-        <HostFilter setFilter={this.props.setFilter} />
-        <LanguageFilter setFilter={this.props.setFilter} />
-        <LengthFilter setFilter={this.props.setFilter} />
-        <DateFilter setFilter={this.props.setFilter} />
+        <Sorting value={this.props.sorting} setSorting={this.props.setSorting} />
+        <HostFilter filters={this.props.filters} setFilter={this.props.setFilter} />
+        <LanguageFilter filters={this.props.filters} setFilter={this.props.setFilter} />
+        <LengthFilter filters={this.props.filters} setFilter={this.props.setFilter} />
+        <DateFilter filters={this.props.filters} setFilter={this.props.setFilter} />
       </div>
     );
     // language, lenght, created
@@ -141,16 +141,25 @@ class LengthFilter extends React.Component {
 
   setFilter(e) {
 
-    const value = e.target.value === "" ? undefined : e.target.value;
-    this.props.setFilter({ maxLength: value });
+    const value = e.target.value;
+    let minLength, maxLength;
+    if (value !== "") {
+      const parts = value.split('-');
+      minLength = parts[0];
+      maxLength = parts[1]
+    }
+    this.props.setFilter({ minLength: minLength, maxLength: maxLength });
   }
 
   render() {
 
     return (
-      <span>
-        Max Length: <input type="text" onChange={this.setFilter.bind(this)} />
-      </span>
+      <select onChange={this.setFilter.bind(this)}>
+        <option value="">Filter by length...</option>
+        <option value="0-2000">Short</option>
+        <option value="2001-7000">Middle</option>
+        <option value="7000">long</option>
+      </select>
     );
   }
 }

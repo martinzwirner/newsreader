@@ -13,23 +13,34 @@ class Bookmark extends React.Component {
     // TODO: remove from list!
   }
 
+  update() {
+
+    const bookmark = this.props.data;
+    bookmark.data().isProcessed = false;
+    bookmark.save();
+  }
+
   render() {
 
     const bookmark = this.props.data;
     const link = document.createElement('a');
     link.setAttribute('href', bookmark.data().url);
 
+    const length = bookmark.data().contentLengthInCharacters;
+    const lengthClass = length > 7000 ? "long" : (length > 2500 ? "middle" : "short");
+
     return (
       <div className="bookmark" key={bookmark.data().id}>
         <div className="favicon"><img src={"favicons/" + link.hostname + ".ico"} /></div>
         <div className="actions">
           <button className="markAsDone" onClick={this.markAsDone.bind(this)}>r</button>
+          <button className="update" onClick={this.update.bind(this)}>u</button>
         </div>
-        <div className="link"><a href={bookmark.data().url}>{bookmark.data().title}</a></div>
+        <div className="link"><a href={bookmark.data().url}>{bookmark.data().title || "(No title)"}</a></div>
         <div className="metaData">
           <div className="hostname">{link.hostname}</div>
           <div className={'languageCode ' + bookmark.data().languageCode}>{bookmark.data().languageCode || "?"}</div>
-          <div className="contentLength">{bookmark.data().contentLengthInCharacters}</div>
+          <div className={'contentLength ' + lengthClass}>{bookmark.data().contentLengthInCharacters}</div>
           <div className="priority">{bookmark.data().priorityValue}</div>
           <div className="createdAt">{moment(bookmark.data().createdAt).format("DD.MM.YYYY")}</div>
         </div>

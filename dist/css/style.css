@@ -10,6 +10,7 @@ body {
       top: 20px; }
       body #root .bookmarks .bookmark {
         border: 1px solid #ccc;
+        background-color: #fafafa;
         height: 45px;
         margin-bottom: 5px;
         padding: 5px; }
@@ -47,6 +48,12 @@ body {
                 color: #f33; }
             body #root .bookmarks .bookmark .metaData div.contentLength {
               width: 50px; }
+              body #root .bookmarks .bookmark .metaData div.contentLength.long {
+                color: #933; }
+              body #root .bookmarks .bookmark .metaData div.contentLength.middle {
+                color: #993; }
+              body #root .bookmarks .bookmark .metaData div.contentLength.short {
+                color: #393; }
             body #root .bookmarks .bookmark .metaData div.priority {
               width: 50px; }
             body #root .bookmarks .bookmark .metaData div.createdAt {

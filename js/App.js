@@ -6,24 +6,32 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      filters: {
-        hostname: undefined
-      }
+      filters: localStorage.filters ? JSON.parse(localStorage.filters) : {},
+      sorting: localStorage.sorting || "createdAt"
     };
   }
 
   setFilter(change) {
 
-    //console.log('App.setFilter');
-    this.setState({ filters: Object.assign({}, this.state.filters, change)});
+    const newFilters = Object.assign({}, this.state.filters, change);
+    this.setState({ filters: newFilters });
+    localStorage.filters = JSON.stringify(newFilters);
+  }
+
+  setSorting(change) {
+
+    this.setState({ sorting: change });
+    localStorage.sorting = change;
   }
 
   render() {
     return (
       <div className='container'>
-        <h1>Newsreader</h1>
-        <Filters setFilter={this.setFilter.bind(this)} />
-        <Bookmarks data={this.state.filters} />
+        <Options filters={this.state.filters}
+                 sorting={this.state.sorting}
+                 setFilter={this.setFilter.bind(this)}
+                 setSorting={this.setSorting.bind(this)} />
+        <Bookmarks data={this.state.filters} sorting={this.state.sorting} />
       </div>
     );
   }
