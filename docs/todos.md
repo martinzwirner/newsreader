@@ -14,6 +14,7 @@
 - **authentication**:
 https://github.com/mweibel/connect-session-sequelize
 passport?
+- save original url
 - save filter settings! local storage?
 - tags importieren
 - seiten typen erkennen (imdb, youtube etc.)
