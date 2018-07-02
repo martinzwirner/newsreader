@@ -1,11 +1,12 @@
 {
   "database": {
-    "createDatabase": true,
-    "enableLogging": true,
+    "createDatabase": false,
+    "enableLogging": false,
     "storagePath": "./data/db.sqlite3"
   },
 
   "hostManager": {
+    "cleanOnStart": false,
     "faviconPath": "./dist/favicons/"
   },
 
@@ -14,12 +15,12 @@
   },
 
   "importer": {
-    "filePath": "./data/pocket/single.html"
+    "filePath": "./data/pocket/current.html"
   },
 
   "processor": {
     "contentPath": "./data/content/",
     "textContentPath": "./data/textcontent/",
-    "cleanOnStart": true
+    "cleanOnStart": false
   }
 }
