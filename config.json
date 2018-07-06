@@ -21,6 +21,7 @@
   "processor": {
     "contentPath": "./data/content/",
     "textContentPath": "./data/textcontent/",
-    "cleanOnStart": false
+    "cleanOnStart": false,
+    "requestTimeout": 5000
   }
 }
