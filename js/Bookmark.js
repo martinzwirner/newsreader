@@ -27,7 +27,7 @@ class Bookmark extends React.Component {
     link.setAttribute('href', bookmark.data().url);
 
     const length = bookmark.data().contentLengthInCharacters;
-    const lengthClass = length > 7000 ? "long" : (length > 2500 ? "middle" : "short");
+    const lengthClass = length > 10000 ? "long" : (length > 5000 ? "middle" : "short");
 
     return (
       <div className="bookmark" key={bookmark.data().id}>
