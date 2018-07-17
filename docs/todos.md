@@ -9,9 +9,10 @@
 
 # backend
 
-- **detect videos** (1h)
 - **save original url** (2h)
-- **detect links to full text** (2h)
+- **detect videos** (1h)
+- detect links to full text (2h)
+- redirects without hostname
 - add deletedAt column
 - process urls in parallel
 - save filter settings! local storage?
@@ -26,6 +27,7 @@
 - use graphql?
 - extract url from tweet
 - save source tweet/newsfeed/person
+- create missing directories
 
 # frontend
 
@@ -36,6 +38,7 @@
 - **authentication**: (2h)
 https://github.com/mweibel/connect-session-sequelize
 passport?
+- display import and DB stats
 - improve state management
 https://alligator.io/react/unstated/
 - add repeatedly --> high prio
