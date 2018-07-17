@@ -38,6 +38,14 @@ var Bookmark = function (_React$Component) {
       bookmark.save();
     }
   }, {
+    key: 'setProperty',
+    value: function setProperty(prop, value) {
+
+      var bookmark = this.props.data;
+      bookmark.data()[prop] = value;
+      bookmark.save();
+    }
+  }, {
     key: 'render',
     value: function render() {
 
@@ -61,13 +69,18 @@ var Bookmark = function (_React$Component) {
           { className: 'actions' },
           React.createElement(
             'button',
-            { className: 'markAsDone', onClick: this.markAsDone.bind(this) },
-            'r'
+            { className: 'markAsLowPrio', onClick: this.setProperty.bind(this, 'priorityValue', 20) },
+            'lowprio'
           ),
           React.createElement(
             'button',
-            { className: 'update', onClick: this.update.bind(this) },
-            'u'
+            { className: 'markAsVideo', onClick: this.setProperty.bind(this, 'contentType', 'video') },
+            'video'
+          ),
+          React.createElement(
+            'button',
+            { className: 'markAsDone', onClick: this.markAsDone.bind(this) },
+            'done'
           )
         ),
         React.createElement(

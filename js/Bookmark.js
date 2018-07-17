@@ -20,6 +20,13 @@ class Bookmark extends React.Component {
     bookmark.save();
   }
 
+  setProperty(prop, value) {
+
+    const bookmark = this.props.data;
+    bookmark.data()[prop] = value;
+    bookmark.save();
+  }
+
   render() {
 
     const bookmark = this.props.data;
@@ -33,8 +40,9 @@ class Bookmark extends React.Component {
       <div className="bookmark" key={bookmark.data().id}>
         <div className="favicon"><img src={"favicons/" + link.hostname + ".ico"} /></div>
         <div className="actions">
-          <button className="markAsDone" onClick={this.markAsDone.bind(this)}>r</button>
-          <button className="update" onClick={this.update.bind(this)}>u</button>
+          <button className="markAsLowPrio" onClick={this.setProperty.bind(this, 'priorityValue', 20)}>lowprio</button>
+          <button className="markAsVideo" onClick={this.setProperty.bind(this, 'contentType', 'video')}>video</button>
+          <button className="markAsDone" onClick={this.markAsDone.bind(this)}>done</button>
         </div>
         <div className="link"><a href={bookmark.data().url}>{bookmark.data().title || "(No title)"}</a></div>
         <div className="metaData">
