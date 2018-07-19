@@ -1,9 +1,5 @@
 "use strict";
 
-var globals = {
-  namespace: "AT_DEV"
-};
-
 window.Route = ReactRouter.Route;
 window.BrowserRouter = ReactRouterDOM.BrowserRouter; // indicates server is able to serve routes as well
 window.MemoryRouter = ReactRouter.MemoryRouter; // does not change URL at all

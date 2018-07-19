@@ -198,6 +198,7 @@ class DateFilter extends React.Component {
         <option value="14">Two weeks</option>
         <option value="30">One month</option>
         <option value="60">Two months</option>
+        <option value="9999">All time</option>
       </select>
     );
   }

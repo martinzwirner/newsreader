@@ -364,6 +364,11 @@ var DateFilter = function (_React$Component6) {
           "option",
           { value: "60" },
           "Two months"
+        ),
+        React.createElement(
+          "option",
+          { value: "9999" },
+          "All time"
         )
       );
     }
