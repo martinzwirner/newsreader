@@ -6,9 +6,35 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      filters: localStorage.filters ? JSON.parse(localStorage.filters) : {},
-      sorting: localStorage.sorting || "createdAt"
+      filters: this.getEffectiveFilters(),
+      sorting: "contentLengthInCharacters"
     };
+  }
+
+  getEffectiveFilters() {
+
+    const effectiveFilters = {
+      minPriority: 15 // normal
+    };
+
+    const userFilters = localStorage.filters ? JSON.parse(localStorage.filters) : null;
+
+    Object.assign(effectiveFilters, userFilters);
+
+    let daysToDisplay;
+    if (userFilters) {
+      const duration = moment.duration(moment(userFilters.maxCreatedAt).diff(moment(userFilters.minCreatedAt)));
+      daysToDisplay = duration.asDays() + 1;
+    } else {
+      daysToDisplay = 2;
+    }
+
+    console.log('daysToDisplay is ' + daysToDisplay);
+    const today = moment().startOf("day");
+    effectiveFilters.maxCreatedAt = today.toDate().getTime(); // today
+    effectiveFilters.minCreatedAt = today.subtract(daysToDisplay - 1, 'days').toDate().getTime(); // x days ago
+
+    return effectiveFilters;
   }
 
   setFilter(change) {
