@@ -23,11 +23,9 @@ var Options = function (_React$Component) {
       return React.createElement(
         "div",
         { className: "options" },
-        React.createElement(Sorting, { value: this.props.sorting, setSorting: this.props.setSorting }),
-        React.createElement(HostFilter, { filters: this.props.filters, setFilter: this.props.setFilter }),
-        React.createElement(LanguageFilter, { filters: this.props.filters, setFilter: this.props.setFilter }),
-        React.createElement(LengthFilter, { filters: this.props.filters, setFilter: this.props.setFilter }),
-        React.createElement(DateFilter, { filters: this.props.filters, setFilter: this.props.setFilter })
+        React.createElement(DateFilter, { filters: this.props.filters, setFilter: this.props.setFilter }),
+        React.createElement(PriorityFilter, { filters: this.props.filters, setFilter: this.props.setFilter }),
+        React.createElement(ContentTypeFilter, { filters: this.props.filters, setFilter: this.props.setFilter })
       );
       // language, lenght, created
     }
@@ -307,73 +305,154 @@ var DateFilter = function (_React$Component6) {
   }
 
   _createClass(DateFilter, [{
-    key: "setFilter",
-    value: function setFilter(e) {
+    key: "setDate",
+    value: function setDate(prop, e) {
 
       var selectedValue = e.target.value;
 
+      var ts = void 0;
       if (selectedValue === "") {
-
-        this.props.setFilter({ minCreatedAt: undefined });
-        return;
+        ts = undefined;
+      } else {
+        ts = moment(selectedValue).startOf("day").toDate().toISOString();
       }
 
-      var date = moment().startOf("days").subtract(selectedValue - 1, "days");
-      var realdate = date.toDate();
-      var timestamp = realdate.getTime();
-      this.props.setFilter({ minCreatedAt: realdate });
+      var newValues = {};
+      newValues[prop] = ts;
+      this.props.setFilter(newValues);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+
+      var min = moment(this.props.filters.minCreatedAt).format('YYYY-MM-DD');
+
+      return React.createElement(
+        "span",
+        null,
+        "From: ",
+        React.createElement("input", { type: "date", name: "minCreatedAt", value: min,
+          onChange: this.setDate.bind(this, 'minCreatedAt') })
+      );
+    }
+  }]);
+
+  return DateFilter;
+}(React.Component);
+
+var PriorityFilter = function (_React$Component7) {
+  _inherits(PriorityFilter, _React$Component7);
+
+  function PriorityFilter(props) {
+    _classCallCheck(this, PriorityFilter);
+
+    var _this9 = _possibleConstructorReturn(this, (PriorityFilter.__proto__ || Object.getPrototypeOf(PriorityFilter)).call(this, props));
+
+    _this9.state = {};
+    return _this9;
+  }
+
+  _createClass(PriorityFilter, [{
+    key: "setFilter",
+    value: function setFilter(e) {
+
+      var value = e.target.value === "" ? undefined : e.target.value;
+      this.props.setFilter({ minPriority: value });
     }
   }, {
     key: "render",
     value: function render() {
 
       return React.createElement(
-        "select",
-        { onChange: this.setFilter.bind(this) },
+        "span",
+        null,
+        "Min prio:",
         React.createElement(
-          "option",
-          { value: "" },
-          "Filter by age..."
-        ),
-        React.createElement(
-          "option",
-          { value: "1" },
-          "Today"
-        ),
-        React.createElement(
-          "option",
-          { value: "2" },
-          "Yesterday"
-        ),
-        React.createElement(
-          "option",
-          { value: "7" },
-          "This week"
-        ),
-        React.createElement(
-          "option",
-          { value: "14" },
-          "Two weeks"
-        ),
-        React.createElement(
-          "option",
-          { value: "30" },
-          "One month"
-        ),
-        React.createElement(
-          "option",
-          { value: "60" },
-          "Two months"
-        ),
-        React.createElement(
-          "option",
-          { value: "9999" },
-          "All time"
+          "select",
+          { value: this.props.filters.minPriority, onChange: this.setFilter.bind(this) },
+          React.createElement(
+            "option",
+            { value: "" },
+            "Min priority..."
+          ),
+          React.createElement(
+            "option",
+            { value: "20" },
+            "Low"
+          ),
+          React.createElement(
+            "option",
+            { value: "15" },
+            "Normal"
+          ),
+          React.createElement(
+            "option",
+            { value: "10" },
+            "High"
+          )
         )
       );
     }
   }]);
 
-  return DateFilter;
+  return PriorityFilter;
+}(React.Component);
+
+var ContentTypeFilter = function (_React$Component8) {
+  _inherits(ContentTypeFilter, _React$Component8);
+
+  function ContentTypeFilter(props) {
+    _classCallCheck(this, ContentTypeFilter);
+
+    var _this10 = _possibleConstructorReturn(this, (ContentTypeFilter.__proto__ || Object.getPrototypeOf(ContentTypeFilter)).call(this, props));
+
+    _this10.state = {};
+    return _this10;
+  }
+
+  _createClass(ContentTypeFilter, [{
+    key: "setFilter",
+    value: function setFilter(e) {
+
+      var value = e.target.value === "" ? undefined : e.target.value;
+      this.props.setFilter({ contentType: value });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+
+      return React.createElement(
+        "span",
+        null,
+        "Type:",
+        React.createElement(
+          "select",
+          { value: this.props.filters.contentType, onChange: this.setFilter.bind(this) },
+          React.createElement(
+            "option",
+            { value: "" },
+            "Content type..."
+          ),
+          React.createElement(
+            "option",
+            { value: "" },
+            "All"
+          ),
+          React.createElement(
+            "option",
+            { value: "text" },
+            "Texts"
+          ),
+          React.createElement(
+            "option",
+            { value: "video" },
+            "Videos"
+          )
+        )
+      );
+    }
+  }]);
+
+  return ContentTypeFilter;
 }(React.Component);
 //# sourceMappingURL=Options.js.map

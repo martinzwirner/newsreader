@@ -3,11 +3,9 @@ class Options extends React.Component {
   render() {
     return (
       <div className='options'>
-        <Sorting value={this.props.sorting} setSorting={this.props.setSorting} />
-        <HostFilter filters={this.props.filters} setFilter={this.props.setFilter} />
-        <LanguageFilter filters={this.props.filters} setFilter={this.props.setFilter} />
-        <LengthFilter filters={this.props.filters} setFilter={this.props.setFilter} />
         <DateFilter filters={this.props.filters} setFilter={this.props.setFilter} />
+        <PriorityFilter filters={this.props.filters} setFilter={this.props.setFilter} />
+        <ContentTypeFilter filters={this.props.filters} setFilter={this.props.setFilter} />
       </div>
     );
     // language, lenght, created
@@ -171,35 +169,90 @@ class DateFilter extends React.Component {
     this.state = {};
   }
 
-  setFilter(e) {
+  setDate(prop, e) {
 
     const selectedValue = e.target.value;
 
+    let ts;
     if (selectedValue === "") {
-
-      this.props.setFilter({ minCreatedAt: undefined });
-      return;
+      ts = undefined;
+    } else {
+      ts = moment(selectedValue).startOf("day").toDate().toISOString();
     }
 
-    const date = moment().startOf("days").subtract(selectedValue - 1, "days");
-    const realdate = date.toDate();
-    const timestamp = realdate.getTime();
-    this.props.setFilter({ minCreatedAt: realdate });
+    const newValues = {};
+    newValues[prop] = ts;
+    this.props.setFilter(newValues);
+  }
+
+  render() {
+
+    const min = moment(this.props.filters.minCreatedAt).format('YYYY-MM-DD');
+
+    return (
+      <span>
+        From: <input type="date" name="minCreatedAt" value={min}
+                     onChange={this.setDate.bind(this, 'minCreatedAt')} />
+      </span>
+    );
+  }
+}
+
+class PriorityFilter extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  setFilter(e) {
+
+    const value = e.target.value === "" ? undefined : e.target.value;
+    this.props.setFilter({ minPriority: value });
   }
 
   render() {
 
     return (
-      <select onChange={this.setFilter.bind(this)}>
-        <option value="">Filter by age...</option>
-        <option value="1">Today</option>
-        <option value="2">Yesterday</option>
-        <option value="7">This week</option>
-        <option value="14">Two weeks</option>
-        <option value="30">One month</option>
-        <option value="60">Two months</option>
-        <option value="9999">All time</option>
-      </select>
+      <span>
+        Min prio:
+        <select value={this.props.filters.minPriority} onChange={this.setFilter.bind(this)}>
+          <option value="">Min priority...</option>
+          <option value="20">Low</option>
+          <option value="15">Normal</option>
+          <option value="10">High</option>
+        </select>
+      </span>
     );
   }
 }
+
+class ContentTypeFilter extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  setFilter(e) {
+
+    const value = e.target.value === "" ? undefined : e.target.value;
+    this.props.setFilter({ contentType: value });
+  }
+
+  render() {
+
+    return (
+      <span>
+        Type:
+        <select value={this.props.filters.contentType} onChange={this.setFilter.bind(this)}>
+          <option value="">Content type...</option>
+          <option value="">All</option>
+          <option value="text">Texts</option>
+          <option value="video">Videos</option>
+        </select>
+      </span>
+    );
+  }
+}
+
