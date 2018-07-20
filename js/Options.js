@@ -6,6 +6,7 @@ class Options extends React.Component {
         <DateFilter filters={this.props.filters} setFilter={this.props.setFilter} />
         <PriorityFilter filters={this.props.filters} setFilter={this.props.setFilter} />
         <ContentTypeFilter filters={this.props.filters} setFilter={this.props.setFilter} />
+        <LengthFilter filters={this.props.filters} setFilter={this.props.setFilter} />
       </div>
     );
     // language, lenght, created
@@ -139,25 +140,13 @@ class LengthFilter extends React.Component {
 
   setFilter(e) {
 
-    const value = e.target.value;
-    let minLength, maxLength;
-    if (value !== "") {
-      const parts = value.split('-');
-      minLength = parts[0];
-      maxLength = parts[1]
-    }
-    this.props.setFilter({ minLength: minLength, maxLength: maxLength });
+    this.props.setFilter({ maxLength: e.target.value });
   }
 
   render() {
 
     return (
-      <select onChange={this.setFilter.bind(this)}>
-        <option value="">Filter by length...</option>
-        <option value="0-2000">Short</option>
-        <option value="2001-7000">Middle</option>
-        <option value="7000">long</option>
-      </select>
+      <span>Max length: <input type="text" className="maxLength" value={this.props.filters.maxLength} onChange={this.setFilter.bind(this)} /></span>
     );
   }
 }
