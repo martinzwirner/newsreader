@@ -42,8 +42,6 @@ class Bookmarks extends React.Component {
       return (<span>Loading...</span>);
     }
 
-    console.log('render');
-
     //let sortedBookmarks = this.state.bookmarks.sort((a, b) => a.data().calculatedPriority - b.data().calculatedPriority);
     let bookmarkElements = this.state.bookmarks.map((bookmark) => {
       return <Bookmark key={bookmark.data().id} data={bookmark} updateList={this.updateList.bind(this)} />;
@@ -51,6 +49,9 @@ class Bookmarks extends React.Component {
 
     return (
       <div className="bookmarks">
+        <div className="stats">
+          Displaying {this.state.bookmarks.length} bookmarks
+        </div>
         {bookmarkElements}
       </div>
     );
