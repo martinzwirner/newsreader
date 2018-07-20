@@ -60,7 +60,7 @@ body {
           height: 100%;
           width: 210px;
           float: right; }
-          body #root .bookmarks .bookmark .actions button {
+          body #root .bookmarks .bookmark .actions button, body #root .bookmarks .bookmark .actions select {
             font-size: 9pt;
             position: relative;
             top: 12px;

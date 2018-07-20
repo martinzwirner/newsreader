@@ -14,6 +14,16 @@ class Bookmark extends React.Component {
     setTimeout(this.props.updateList, 100); // TODO: reload list after update was executed
   }
 
+  setContentType(evt) {
+
+    this.setProperty('contentType', evt.target.value);
+  }
+
+  setPriority(evt) {
+
+    this.setProperty('priorityValue', evt.target.value);
+  }
+
   render() {
 
     const bookmark = this.props.data;
@@ -27,8 +37,17 @@ class Bookmark extends React.Component {
       <div className="bookmark" key={bookmark.data().id}>
         <div className="favicon"><img src={"favicons/" + link.hostname + ".ico"} /></div>
         <div className="actions">
-          <button className="markAsLowPrio" onClick={this.setProperty.bind(this, 'priorityValue', 20)}>lowprio</button>
-          <button className="markAsVideo" onClick={this.setProperty.bind(this, 'contentType', 'video')}>video</button>
+          <select className="setPriority" value={bookmark.data().priorityValue} onChange={this.setPriority.bind(this)}>
+            <option value="20">Low</option>
+            <option value="15">Normal</option>
+            <option value="10">High</option>
+          </select>
+          <select className="setContentType" value={bookmark.data().contentType} onChange={this.setContentType.bind(this)}>
+            <option value="text">Text</option>
+            <option value="video">Video</option>
+            <option value="audio">Audio</option>
+            <option value="image">Image</option>
+          </select>
           <button className="markAsDone" onClick={this.setProperty.bind(this, 'isViewed', true)}>done</button>
         </div>
         <div className="link"><a href={bookmark.data().url}>{bookmark.data().title || "(No title)"}</a></div>

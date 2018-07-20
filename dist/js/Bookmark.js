@@ -28,7 +28,19 @@ var Bookmark = function (_React$Component) {
       bookmark.data()[prop] = value;
       bookmark.save();
 
-      setTimeout(this.props.updateList, 100);
+      setTimeout(this.props.updateList, 100); // TODO: reload list after update was executed
+    }
+  }, {
+    key: 'setContentType',
+    value: function setContentType(evt) {
+
+      this.setProperty('contentType', evt.target.value);
+    }
+  }, {
+    key: 'setPriority',
+    value: function setPriority(evt) {
+
+      this.setProperty('priorityValue', evt.target.value);
     }
   }, {
     key: 'render',
@@ -53,14 +65,47 @@ var Bookmark = function (_React$Component) {
           'div',
           { className: 'actions' },
           React.createElement(
-            'button',
-            { className: 'markAsLowPrio', onClick: this.setProperty.bind(this, 'priorityValue', 20) },
-            'lowprio'
+            'select',
+            { className: 'setPriority', value: bookmark.data().priorityValue, onChange: this.setPriority.bind(this) },
+            React.createElement(
+              'option',
+              { value: '20' },
+              'Low'
+            ),
+            React.createElement(
+              'option',
+              { value: '15' },
+              'Normal'
+            ),
+            React.createElement(
+              'option',
+              { value: '10' },
+              'High'
+            )
           ),
           React.createElement(
-            'button',
-            { className: 'markAsVideo', onClick: this.setProperty.bind(this, 'contentType', 'video') },
-            'video'
+            'select',
+            { className: 'setContentType', value: bookmark.data().contentType, onChange: this.setContentType.bind(this) },
+            React.createElement(
+              'option',
+              { value: 'text' },
+              'Text'
+            ),
+            React.createElement(
+              'option',
+              { value: 'video' },
+              'Video'
+            ),
+            React.createElement(
+              'option',
+              { value: 'audio' },
+              'Audio'
+            ),
+            React.createElement(
+              'option',
+              { value: 'image' },
+              'Image'
+            )
           ),
           React.createElement(
             'button',
