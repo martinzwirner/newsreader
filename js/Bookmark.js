@@ -5,26 +5,13 @@ class Bookmark extends React.Component {
     this.state = {};
   }
 
-  markAsDone() {
-
-    const bookmark = this.props.data;
-    bookmark.data().isViewed = true;
-    bookmark.save();
-    // TODO: remove from list!
-  }
-
-  update() {
-
-    const bookmark = this.props.data;
-    bookmark.data().isProcessed = false;
-    bookmark.save();
-  }
-
   setProperty(prop, value) {
 
     const bookmark = this.props.data;
     bookmark.data()[prop] = value;
     bookmark.save();
+
+    setTimeout(this.props.updateList, 100); // TODO: reload list after update was executed
   }
 
   render() {
@@ -42,7 +29,7 @@ class Bookmark extends React.Component {
         <div className="actions">
           <button className="markAsLowPrio" onClick={this.setProperty.bind(this, 'priorityValue', 20)}>lowprio</button>
           <button className="markAsVideo" onClick={this.setProperty.bind(this, 'contentType', 'video')}>video</button>
-          <button className="markAsDone" onClick={this.markAsDone.bind(this)}>done</button>
+          <button className="markAsDone" onClick={this.setProperty.bind(this, 'isViewed', true)}>done</button>
         </div>
         <div className="link"><a href={bookmark.data().url}>{bookmark.data().title || "(No title)"}</a></div>
         <div className="metaData">

@@ -49,8 +49,15 @@ var Bookmarks = function (_React$Component) {
       });
     }
   }, {
+    key: 'updateList',
+    value: function updateList() {
+
+      this.loadData(this.props);
+    }
+  }, {
     key: 'render',
     value: function render() {
+      var _this3 = this;
 
       if (!this.state.loaded) {
 
@@ -65,7 +72,7 @@ var Bookmarks = function (_React$Component) {
 
       //let sortedBookmarks = this.state.bookmarks.sort((a, b) => a.data().calculatedPriority - b.data().calculatedPriority);
       var bookmarkElements = this.state.bookmarks.map(function (bookmark) {
-        return React.createElement(Bookmark, { key: bookmark.data().id, data: bookmark });
+        return React.createElement(Bookmark, { key: bookmark.data().id, data: bookmark, updateList: _this3.updateList.bind(_this3) });
       });
 
       return React.createElement(

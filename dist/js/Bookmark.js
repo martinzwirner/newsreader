@@ -21,29 +21,14 @@ var Bookmark = function (_React$Component) {
   }
 
   _createClass(Bookmark, [{
-    key: 'markAsDone',
-    value: function markAsDone() {
-
-      var bookmark = this.props.data;
-      bookmark.data().isViewed = true;
-      bookmark.save();
-      // TODO: remove from list!
-    }
-  }, {
-    key: 'update',
-    value: function update() {
-
-      var bookmark = this.props.data;
-      bookmark.data().isProcessed = false;
-      bookmark.save();
-    }
-  }, {
     key: 'setProperty',
     value: function setProperty(prop, value) {
 
       var bookmark = this.props.data;
       bookmark.data()[prop] = value;
       bookmark.save();
+
+      setTimeout(this.props.updateList, 100);
     }
   }, {
     key: 'render',
@@ -79,7 +64,7 @@ var Bookmark = function (_React$Component) {
           ),
           React.createElement(
             'button',
-            { className: 'markAsDone', onClick: this.markAsDone.bind(this) },
+            { className: 'markAsDone', onClick: this.setProperty.bind(this, 'isViewed', true) },
             'done'
           )
         ),

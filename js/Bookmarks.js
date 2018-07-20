@@ -30,6 +30,11 @@ class Bookmarks extends React.Component {
     });
   }
 
+  updateList() {
+
+    this.loadData(this.props);
+  }
+
   render() {
 
     if (!this.state.loaded) {
@@ -41,7 +46,7 @@ class Bookmarks extends React.Component {
 
     //let sortedBookmarks = this.state.bookmarks.sort((a, b) => a.data().calculatedPriority - b.data().calculatedPriority);
     let bookmarkElements = this.state.bookmarks.map((bookmark) => {
-      return <Bookmark key={bookmark.data().id} data={bookmark} />;
+      return <Bookmark key={bookmark.data().id} data={bookmark} updateList={this.updateList.bind(this)} />;
     });
 
     return (
