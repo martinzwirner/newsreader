@@ -11,3 +11,5 @@ dist/docs/readable\.js
 dist/docs/readable\.js\.map
 
 docs/readable\.js
+
+dist/dist/

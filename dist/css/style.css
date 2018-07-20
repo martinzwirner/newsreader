@@ -2,7 +2,7 @@ body {
   font-family: "DejaVu Sans", "sans-serif";
   font-size: 9pt; }
   body #root {
-    width: 720px; }
+    width: 1024px; }
     body #root .bookmarks {
       position: relative;
       top: 20px; }
@@ -58,12 +58,18 @@ body {
               width: 100px; }
         body #root .bookmarks .bookmark .actions {
           height: 100%;
-          width: 210px;
+          width: 230px;
           float: right; }
           body #root .bookmarks .bookmark .actions button, body #root .bookmarks .bookmark .actions select {
             font-size: 9pt;
             position: relative;
             top: 12px;
             left: 12px; }
+          body #root .bookmarks .bookmark .actions option.low {
+            color: #393; }
+          body #root .bookmarks .bookmark .actions option.normal {
+            background-color: #993; }
+          body #root .bookmarks .bookmark .actions option.high {
+            color: #933; }
 
 /*# sourceMappingURL=style.css.map */

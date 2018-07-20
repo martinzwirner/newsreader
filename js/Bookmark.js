@@ -38,15 +38,15 @@ class Bookmark extends React.Component {
         <div className="favicon"><img src={"favicons/" + link.hostname + ".ico"} /></div>
         <div className="actions">
           <select className="setPriority" value={bookmark.data().priorityValue} onChange={this.setPriority.bind(this)}>
-            <option value="20">Low</option>
-            <option value="15">Normal</option>
-            <option value="10">High</option>
+            <option value="20" className="low">Low</option>
+            <option value="15" className="normal">Normal</option>
+            <option value="10" className="high">High</option>
           </select>
           <select className="setContentType" value={bookmark.data().contentType} onChange={this.setContentType.bind(this)}>
-            <option value="text">Text</option>
-            <option value="video">Video</option>
-            <option value="audio">Audio</option>
-            <option value="image">Image</option>
+            <option value="text" className="text">Text</option>
+            <option value="video" className="video">Video</option>
+            <option value="audio" className="audio">Audio</option>
+            <option value="image" className="image">Image</option>
           </select>
           <button className="markAsDone" onClick={this.setProperty.bind(this, 'isViewed', true)}>done</button>
         </div>

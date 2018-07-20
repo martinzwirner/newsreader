@@ -25,8 +25,9 @@ class Bookmarks extends React.Component {
 
     myGlobals.bookmarksCollection.getAll(params)
     .then((response) => {
+      const range = response.headers()['content-range'];
       const bookmarks = response.body();
-      this.setState({bookmarks: bookmarks, loaded: true});
+      this.setState({range: range, bookmarks: bookmarks, loaded: true});
     });
   }
 
@@ -50,7 +51,7 @@ class Bookmarks extends React.Component {
     return (
       <div className="bookmarks">
         <div className="stats">
-          Displaying {this.state.bookmarks.length} bookmarks
+          Displaying {this.state.range}
         </div>
         {bookmarkElements}
       </div>

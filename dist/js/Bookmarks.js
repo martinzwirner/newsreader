@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -21,19 +21,19 @@ var Bookmarks = function (_React$Component) {
   }
 
   _createClass(Bookmarks, [{
-    key: "componentDidMount",
+    key: 'componentDidMount',
     value: function componentDidMount() {
 
       this.loadData(this.props);
     }
   }, {
-    key: "componentWillReceiveProps",
+    key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
 
       this.loadData(nextProps);
     }
   }, {
-    key: "loadData",
+    key: 'loadData',
     value: function loadData(props) {
       var _this2 = this;
 
@@ -44,27 +44,28 @@ var Bookmarks = function (_React$Component) {
       console.log('params: ', params);
 
       myGlobals.bookmarksCollection.getAll(params).then(function (response) {
+        var range = response.headers()['content-range'];
         var bookmarks = response.body();
-        _this2.setState({ bookmarks: bookmarks, loaded: true });
+        _this2.setState({ range: range, bookmarks: bookmarks, loaded: true });
       });
     }
   }, {
-    key: "updateList",
+    key: 'updateList',
     value: function updateList() {
 
       this.loadData(this.props);
     }
   }, {
-    key: "render",
+    key: 'render',
     value: function render() {
       var _this3 = this;
 
       if (!this.state.loaded) {
 
         return React.createElement(
-          "span",
+          'span',
           null,
-          "Loading..."
+          'Loading...'
         );
       }
 
@@ -74,14 +75,13 @@ var Bookmarks = function (_React$Component) {
       });
 
       return React.createElement(
-        "div",
-        { className: "bookmarks" },
+        'div',
+        { className: 'bookmarks' },
         React.createElement(
-          "div",
-          { className: "stats" },
-          "Displaying ",
-          this.state.bookmarks.length,
-          " bookmarks"
+          'div',
+          { className: 'stats' },
+          'Displaying ',
+          this.state.range
         ),
         bookmarkElements
       );

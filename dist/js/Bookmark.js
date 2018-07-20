@@ -69,17 +69,17 @@ var Bookmark = function (_React$Component) {
             { className: 'setPriority', value: bookmark.data().priorityValue, onChange: this.setPriority.bind(this) },
             React.createElement(
               'option',
-              { value: '20' },
+              { value: '20', className: 'low' },
               'Low'
             ),
             React.createElement(
               'option',
-              { value: '15' },
+              { value: '15', className: 'normal' },
               'Normal'
             ),
             React.createElement(
               'option',
-              { value: '10' },
+              { value: '10', className: 'high' },
               'High'
             )
           ),
@@ -88,22 +88,22 @@ var Bookmark = function (_React$Component) {
             { className: 'setContentType', value: bookmark.data().contentType, onChange: this.setContentType.bind(this) },
             React.createElement(
               'option',
-              { value: 'text' },
+              { value: 'text', className: 'text' },
               'Text'
             ),
             React.createElement(
               'option',
-              { value: 'video' },
+              { value: 'video', className: 'video' },
               'Video'
             ),
             React.createElement(
               'option',
-              { value: 'audio' },
+              { value: 'audio', className: 'audio' },
               'Audio'
             ),
             React.createElement(
               'option',
-              { value: 'image' },
+              { value: 'image', className: 'image' },
               'Image'
             )
           ),
