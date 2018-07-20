@@ -326,13 +326,17 @@ var DateFilter = function (_React$Component6) {
     value: function render() {
 
       var min = moment(this.props.filters.minCreatedAt).format('YYYY-MM-DD');
+      var max = moment(this.props.filters.maxCreatedAt).format('YYYY-MM-DD');
 
       return React.createElement(
         "span",
         null,
         "From: ",
         React.createElement("input", { type: "date", name: "minCreatedAt", value: min,
-          onChange: this.setDate.bind(this, 'minCreatedAt') })
+          onChange: this.setDate.bind(this, 'minCreatedAt') }),
+        "To: ",
+        React.createElement("input", { type: "date", name: "maxCreatedAt", value: max,
+          onChange: this.setDate.bind(this, 'maxCreatedAt') })
       );
     }
   }]);

@@ -188,11 +188,14 @@ class DateFilter extends React.Component {
   render() {
 
     const min = moment(this.props.filters.minCreatedAt).format('YYYY-MM-DD');
+    const max = moment(this.props.filters.maxCreatedAt).format('YYYY-MM-DD');
 
     return (
       <span>
         From: <input type="date" name="minCreatedAt" value={min}
                      onChange={this.setDate.bind(this, 'minCreatedAt')} />
+        To: <input type="date" name="maxCreatedAt" value={max}
+                     onChange={this.setDate.bind(this, 'maxCreatedAt')} />
       </span>
     );
   }
