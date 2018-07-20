@@ -173,13 +173,13 @@ class DateFilter extends React.Component {
 
     const selectedValue = e.target.value;
 
+    let ts;
     if (selectedValue === "") {
-
-      this.props.setFilter({ maxCreatedAt: undefined });
-      return;
+      ts = undefined;
+    } else {
+      ts = moment(selectedValue).startOf("day").toDate().toISOString();
     }
 
-    const ts = moment(selectedValue).startOf("day").toDate().getTime();
     const newValues = {};
     newValues[prop] = ts;
     this.props.setFilter(newValues);
@@ -188,14 +188,11 @@ class DateFilter extends React.Component {
   render() {
 
     const min = moment(this.props.filters.minCreatedAt).format('YYYY-MM-DD');
-    const max = moment(this.props.filters.maxCreatedAt).format('YYYY-MM-DD');
 
     return (
       <span>
         From: <input type="date" name="minCreatedAt" value={min}
                      onChange={this.setDate.bind(this, 'minCreatedAt')} />
-        To: <input type="date" name="maxCreatedAt" value={max}
-                   onChange={this.setDate.bind(this, 'maxCreatedAt')} />
       </span>
     );
   }
@@ -217,12 +214,15 @@ class PriorityFilter extends React.Component {
   render() {
 
     return (
-      <select value={this.props.filters.minPriority} onChange={this.setFilter.bind(this)}>
-        <option value="">Min priority...</option>
-        <option value="20">Low</option>
-        <option value="15">Normal</option>
-        <option value="10">High</option>
-      </select>
+      <span>
+        Min prio:
+        <select value={this.props.filters.minPriority} onChange={this.setFilter.bind(this)}>
+          <option value="">Min priority...</option>
+          <option value="20">Low</option>
+          <option value="15">Normal</option>
+          <option value="10">High</option>
+        </select>
+      </span>
     );
   }
 }
@@ -243,12 +243,15 @@ class ContentTypeFilter extends React.Component {
   render() {
 
     return (
-      <select value={this.props.filters.contentType} onChange={this.setFilter.bind(this)}>
-        <option value="">Content type...</option>
-        <option value="">All</option>
-        <option value="text">Texts</option>
-        <option value="video">Videos</option>
-      </select>
+      <span>
+        Type:
+        <select value={this.props.filters.contentType} onChange={this.setFilter.bind(this)}>
+          <option value="">Content type...</option>
+          <option value="">All</option>
+          <option value="text">Texts</option>
+          <option value="video">Videos</option>
+        </select>
+      </span>
     );
   }
 }

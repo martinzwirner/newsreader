@@ -21,7 +21,7 @@ class App extends React.Component {
 
     Object.assign(effectiveFilters, userFilters);
 
-    let daysToDisplay;
+    /*let daysToDisplay;
     if (userFilters) {
       const duration = moment.duration(moment(userFilters.maxCreatedAt).diff(moment(userFilters.minCreatedAt)));
       daysToDisplay = duration.asDays() + 1;
@@ -31,8 +31,9 @@ class App extends React.Component {
 
     console.log('daysToDisplay is ' + daysToDisplay);
     const today = moment().startOf("day");
-    effectiveFilters.maxCreatedAt = today.toDate().getTime(); // today
-    effectiveFilters.minCreatedAt = today.subtract(daysToDisplay - 1, 'days').toDate().getTime(); // x days ago
+    //effectiveFilters.maxCreatedAt = today.format('YYYY-MM-DD'); // today
+    effectiveFilters.minCreatedAt = today.subtract(daysToDisplay - 1, 'days').toDate().toISOString(); // x days ago
+*/
 
     return effectiveFilters;
   }

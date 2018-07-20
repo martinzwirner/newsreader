@@ -36,18 +36,18 @@ var App = function (_React$Component) {
 
       Object.assign(effectiveFilters, userFilters);
 
-      var daysToDisplay = void 0;
+      /*let daysToDisplay;
       if (userFilters) {
-        var duration = moment.duration(moment(userFilters.maxCreatedAt).diff(moment(userFilters.minCreatedAt)));
+        const duration = moment.duration(moment(userFilters.maxCreatedAt).diff(moment(userFilters.minCreatedAt)));
         daysToDisplay = duration.asDays() + 1;
       } else {
         daysToDisplay = 2;
       }
-
-      console.log('daysToDisplay is ' + daysToDisplay);
-      var today = moment().startOf("day");
-      effectiveFilters.maxCreatedAt = today.toDate().getTime(); // today
-      effectiveFilters.minCreatedAt = today.subtract(daysToDisplay - 1, 'days').toDate().getTime(); // x days ago
+       console.log('daysToDisplay is ' + daysToDisplay);
+      const today = moment().startOf("day");
+      //effectiveFilters.maxCreatedAt = today.format('YYYY-MM-DD'); // today
+      effectiveFilters.minCreatedAt = today.subtract(daysToDisplay - 1, 'days').toDate().toISOString(); // x days ago
+      */
 
       return effectiveFilters;
     }

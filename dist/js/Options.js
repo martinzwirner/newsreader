@@ -310,13 +310,13 @@ var DateFilter = function (_React$Component6) {
 
       var selectedValue = e.target.value;
 
+      var ts = void 0;
       if (selectedValue === "") {
-
-        this.props.setFilter({ maxCreatedAt: undefined });
-        return;
+        ts = undefined;
+      } else {
+        ts = moment(selectedValue).startOf("day").toDate().toISOString();
       }
 
-      var ts = moment(selectedValue).startOf("day").toDate().getTime();
       var newValues = {};
       newValues[prop] = ts;
       this.props.setFilter(newValues);
@@ -326,17 +326,13 @@ var DateFilter = function (_React$Component6) {
     value: function render() {
 
       var min = moment(this.props.filters.minCreatedAt).format('YYYY-MM-DD');
-      var max = moment(this.props.filters.maxCreatedAt).format('YYYY-MM-DD');
 
       return React.createElement(
         "span",
         null,
         "From: ",
         React.createElement("input", { type: "date", name: "minCreatedAt", value: min,
-          onChange: this.setDate.bind(this, 'minCreatedAt') }),
-        "To: ",
-        React.createElement("input", { type: "date", name: "maxCreatedAt", value: max,
-          onChange: this.setDate.bind(this, 'maxCreatedAt') })
+          onChange: this.setDate.bind(this, 'minCreatedAt') })
       );
     }
   }]);
@@ -368,27 +364,32 @@ var PriorityFilter = function (_React$Component7) {
     value: function render() {
 
       return React.createElement(
-        "select",
-        { value: this.props.filters.minPriority, onChange: this.setFilter.bind(this) },
+        "span",
+        null,
+        "Min prio:",
         React.createElement(
-          "option",
-          { value: "" },
-          "Min priority..."
-        ),
-        React.createElement(
-          "option",
-          { value: "20" },
-          "Low"
-        ),
-        React.createElement(
-          "option",
-          { value: "15" },
-          "Normal"
-        ),
-        React.createElement(
-          "option",
-          { value: "10" },
-          "High"
+          "select",
+          { value: this.props.filters.minPriority, onChange: this.setFilter.bind(this) },
+          React.createElement(
+            "option",
+            { value: "" },
+            "Min priority..."
+          ),
+          React.createElement(
+            "option",
+            { value: "20" },
+            "Low"
+          ),
+          React.createElement(
+            "option",
+            { value: "15" },
+            "Normal"
+          ),
+          React.createElement(
+            "option",
+            { value: "10" },
+            "High"
+          )
         )
       );
     }
@@ -421,27 +422,32 @@ var ContentTypeFilter = function (_React$Component8) {
     value: function render() {
 
       return React.createElement(
-        "select",
-        { value: this.props.filters.contentType, onChange: this.setFilter.bind(this) },
+        "span",
+        null,
+        "Type:",
         React.createElement(
-          "option",
-          { value: "" },
-          "Content type..."
-        ),
-        React.createElement(
-          "option",
-          { value: "" },
-          "All"
-        ),
-        React.createElement(
-          "option",
-          { value: "text" },
-          "Texts"
-        ),
-        React.createElement(
-          "option",
-          { value: "video" },
-          "Videos"
+          "select",
+          { value: this.props.filters.contentType, onChange: this.setFilter.bind(this) },
+          React.createElement(
+            "option",
+            { value: "" },
+            "Content type..."
+          ),
+          React.createElement(
+            "option",
+            { value: "" },
+            "All"
+          ),
+          React.createElement(
+            "option",
+            { value: "text" },
+            "Texts"
+          ),
+          React.createElement(
+            "option",
+            { value: "video" },
+            "Videos"
+          )
         )
       );
     }
