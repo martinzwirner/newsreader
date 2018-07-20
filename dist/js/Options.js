@@ -25,7 +25,10 @@ var Options = function (_React$Component) {
         { className: "options" },
         React.createElement(DateFilter, { filters: this.props.filters, setFilter: this.props.setFilter }),
         React.createElement(PriorityFilter, { filters: this.props.filters, setFilter: this.props.setFilter }),
-        React.createElement(ContentTypeFilter, { filters: this.props.filters, setFilter: this.props.setFilter })
+        React.createElement(ContentTypeFilter, { filters: this.props.filters, setFilter: this.props.setFilter }),
+        React.createElement(LengthFilter, { filters: this.props.filters, setFilter: this.props.setFilter }),
+        React.createElement("br", null),
+        React.createElement(Sorting, { sorting: this.props.sorting, setSorting: this.props.setSorting })
       );
       // language, lenght, created
     }
@@ -62,27 +65,37 @@ var Sorting = function (_React$Component2) {
     value: function render() {
 
       return React.createElement(
-        "select",
-        { onChange: this.setSorting.bind(this) },
+        "span",
+        null,
+        "Sort by:",
         React.createElement(
-          "option",
-          { value: "" },
-          "Sort by..."
-        ),
-        React.createElement(
-          "option",
-          { value: "title" },
-          "Title"
-        ),
-        React.createElement(
-          "option",
-          { value: "contentLengthInCharacters" },
-          "Content length"
-        ),
-        React.createElement(
-          "option",
-          { value: "-createdAt" },
-          "Date added"
+          "select",
+          { value: this.props.sorting, onChange: this.setSorting.bind(this) },
+          React.createElement(
+            "option",
+            { value: "" },
+            "Sort by..."
+          ),
+          React.createElement(
+            "option",
+            { value: "title" },
+            "Title"
+          ),
+          React.createElement(
+            "option",
+            { value: "url" },
+            "URL"
+          ),
+          React.createElement(
+            "option",
+            { value: "contentLengthInCharacters" },
+            "Content length"
+          ),
+          React.createElement(
+            "option",
+            { value: "-createdAt" },
+            "Date added"
+          )
         )
       );
     }
@@ -248,43 +261,17 @@ var LengthFilter = function (_React$Component5) {
     key: "setFilter",
     value: function setFilter(e) {
 
-      var value = e.target.value;
-      var minLength = void 0,
-          maxLength = void 0;
-      if (value !== "") {
-        var parts = value.split('-');
-        minLength = parts[0];
-        maxLength = parts[1];
-      }
-      this.props.setFilter({ minLength: minLength, maxLength: maxLength });
+      this.props.setFilter({ maxLength: e.target.value });
     }
   }, {
     key: "render",
     value: function render() {
 
       return React.createElement(
-        "select",
-        { onChange: this.setFilter.bind(this) },
-        React.createElement(
-          "option",
-          { value: "" },
-          "Filter by length..."
-        ),
-        React.createElement(
-          "option",
-          { value: "0-2000" },
-          "Short"
-        ),
-        React.createElement(
-          "option",
-          { value: "2001-7000" },
-          "Middle"
-        ),
-        React.createElement(
-          "option",
-          { value: "7000" },
-          "long"
-        )
+        "span",
+        null,
+        "Max length: ",
+        React.createElement("input", { type: "text", className: "maxLength", value: this.props.filters.maxLength, onChange: this.setFilter.bind(this) })
       );
     }
   }]);

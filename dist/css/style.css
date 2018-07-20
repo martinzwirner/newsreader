@@ -3,6 +3,8 @@ body {
   font-size: 9pt; }
   body #root {
     width: 1024px; }
+    body #root .options input.maxLength {
+      width: 100px; }
     body #root .bookmarks {
       position: relative;
       top: 20px; }
