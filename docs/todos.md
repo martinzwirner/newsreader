@@ -1,7 +1,12 @@
+# how to compile react files
+
+./node_modules/.bin/babel js --out-dir dist/js --source-maps
+
 # bugs
 
 - bug: multiple filters at the same time
 - items with length 0
+- some urls are still imported as new
 
 # code quality
 
@@ -11,6 +16,7 @@
 
 - **save original url** (2h)
 - **detect videos** (1h)
+- load data from 1000flies
 - detect links to full text (2h)
 - redirects without hostname
 - add deletedAt column
@@ -56,3 +62,8 @@ https://blog.bitsrc.io/11-react-component-libraries-you-should-know-178eb1dd6aa4
 "redmine for articles to read"
 https://levelup.gitconnected.com/using-graphql-api-with-node-js-and-react-forms-8b13f4b26361
 heroku? digital ocean?
+- ide
+delete webstorm 2016?
+code?
+- beyond compare?
+alternatives: kdiff3, meld, freefilesync
