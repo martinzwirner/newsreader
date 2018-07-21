@@ -14,6 +14,10 @@ body {
         height: 45px;
         margin-bottom: 5px;
         padding: 5px; }
+        body #root .bookmarks .bookmark.prio10 {
+          background-color: #fdd; }
+        body #root .bookmarks .bookmark.prio20 {
+          background-color: #fdfdfd; }
         body #root .bookmarks .bookmark .favicon {
           height: 100%;
           width: 45px;

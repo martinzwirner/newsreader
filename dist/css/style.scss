@@ -35,6 +35,9 @@ body {
         margin-bottom: 5px;
         padding: 5px;
 
+        &.prio10 { background-color: #fdd; } // high
+        &.prio20 { background-color: #fdfdfd; } // low
+
         .favicon {
 
           height: 100%;

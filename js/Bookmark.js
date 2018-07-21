@@ -33,8 +33,12 @@ class Bookmark extends React.Component {
     const length = bookmark.data().contentLengthInCharacters;
     const lengthClass = length > 10000 ? "long" : (length > 5000 ? "middle" : "short");
 
+    const cssClasses = ['bookmark'];
+    cssClasses.push('prio' + bookmark.data().priorityValue);
+    cssClasses.push(bookmark.data().contentType);
+
     return (
-      <div className="bookmark" key={bookmark.data().id}>
+      <div className={cssClasses.join(' ')} key={bookmark.data().id}>
         <div className="favicon"><img src={"favicons/" + link.hostname + ".ico"} /></div>
         <div className="actions">
           <select className="setPriority" value={bookmark.data().priorityValue} onChange={this.setPriority.bind(this)}>
