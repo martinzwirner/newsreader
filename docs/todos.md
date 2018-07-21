@@ -14,8 +14,8 @@
 
 # backend
 
-- **save original url** (2h)
-- **detect videos** (1h)
+- **load content correctly (l-iz.de, enorm-magazin.de...)** (1h)
+- detect videos (1h)
 - load data from 1000flies
 - detect links to full text (2h)
 - redirects without hostname
@@ -37,13 +37,14 @@
 
 # frontend
 
-- **filter by content type** (0.5h)
+- **different highlighting by type** (0,5h)
+- **add predefined filters** (0.5h)
 - **add item from frontend** (0.5h)
-- **set bookmark priority** (1h)
 - **import from frontend** (1h)
 - **authentication**: (2h)
 https://github.com/mweibel/connect-session-sequelize
 passport?
+- set tag
 - display import and DB stats
 - improve state management
 https://alligator.io/react/unstated/
