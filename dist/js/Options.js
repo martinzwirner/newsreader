@@ -28,7 +28,8 @@ var Options = function (_React$Component) {
         React.createElement(ContentTypeFilter, { filters: this.props.filters, setFilter: this.props.setFilter }),
         React.createElement(LengthFilter, { filters: this.props.filters, setFilter: this.props.setFilter }),
         React.createElement("br", null),
-        React.createElement(Sorting, { sorting: this.props.sorting, setSorting: this.props.setSorting })
+        React.createElement(Sorting, { sorting: this.props.sorting, setSorting: this.props.setSorting }),
+        React.createElement(View, { isExport: this.props.isExport, setIsExport: this.props.setIsExport })
       );
       // language, lenght, created
     }
@@ -445,5 +446,37 @@ var ContentTypeFilter = function (_React$Component8) {
   }]);
 
   return ContentTypeFilter;
+}(React.Component);
+
+var View = function (_React$Component9) {
+  _inherits(View, _React$Component9);
+
+  function View() {
+    _classCallCheck(this, View);
+
+    return _possibleConstructorReturn(this, (View.__proto__ || Object.getPrototypeOf(View)).apply(this, arguments));
+  }
+
+  _createClass(View, [{
+    key: "setIsExport",
+    value: function setIsExport(e) {
+
+      this.props.setIsExport(e.target.checked);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+
+      return React.createElement(
+        "span",
+        null,
+        React.createElement("input", { type: "checkbox", defaultChecked: this.props.isExport,
+          onChange: this.setIsExport.bind(this) }),
+        " Export"
+      );
+    }
+  }]);
+
+  return View;
 }(React.Component);
 //# sourceMappingURL=Options.js.map

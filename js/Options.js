@@ -8,6 +8,7 @@ class Options extends React.Component {
         <ContentTypeFilter filters={this.props.filters} setFilter={this.props.setFilter} />
         <LengthFilter filters={this.props.filters} setFilter={this.props.setFilter} /><br />
         <Sorting sorting={this.props.sorting} setSorting={this.props.setSorting} />
+        <View isExport={this.props.isExport} setIsExport={this.props.setIsExport} />
       </div>
     );
     // language, lenght, created
@@ -252,3 +253,18 @@ class ContentTypeFilter extends React.Component {
   }
 }
 
+class View extends React.Component {
+
+  setIsExport(e) {
+
+    this.props.setIsExport(e.target.checked);
+  }
+
+  render() {
+
+    return (
+      <span><input type="checkbox" defaultChecked={this.props.isExport}
+                   onChange={this.setIsExport.bind(this)} /> Export</span>
+    );
+  }
+}
