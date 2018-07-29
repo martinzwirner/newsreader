@@ -40,6 +40,7 @@ class Sorting extends React.Component {
           <option value="url">URL</option>
           <option value="contentLengthInCharacters">Content length</option>
           <option value="-createdAt">Date added</option>
+          <option value="tagName">Tag</option>
         </select>
       </span>
     );

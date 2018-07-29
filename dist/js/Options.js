@@ -96,6 +96,11 @@ var Sorting = function (_React$Component2) {
             "option",
             { value: "-createdAt" },
             "Date added"
+          ),
+          React.createElement(
+            "option",
+            { value: "tagName" },
+            "Tag"
           )
         )
       );
