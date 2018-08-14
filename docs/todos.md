@@ -15,6 +15,7 @@
 # backend
 
 - **load content correctly (l-iz.de, enorm-magazin.de...)** (1h)
+- save last index on import
 - insert foreign keys correctly
 ALTER TABLE bookmarks ADD COLUMN subjectName VARCHAR(255) REFERENCES `subjects`(`name`) ON DELETE SET NULL ON UPDATE CASCADE;
 - detect videos (1h)
@@ -68,8 +69,9 @@ https://blog.bitsrc.io/11-react-component-libraries-you-should-know-178eb1dd6aa4
 
 # other
 
-"redmine for articles to read"
+- "redmine for articles to read"
 https://levelup.gitconnected.com/using-graphql-api-with-node-js-and-react-forms-8b13f4b26361
+- host on opeNode.io?
 heroku? digital ocean?
 - ide
 delete webstorm 2016?
