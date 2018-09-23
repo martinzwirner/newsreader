@@ -7,7 +7,7 @@ window.HashRouter = ReactRouterDOM.HashRouter; // appends route as hash to URL
 window.Link = ReactRouterDOM.Link;
 window.Switch = ReactRouterDOM.Switch;
 
-const api = restful('/api', fetchBackend(fetch));
+const api = restful('http://localhost:8080/api', fetchBackend(fetch));
 
 window.myGlobals = {};
 myGlobals.bookmarksCollection = api.all('bookmarks');

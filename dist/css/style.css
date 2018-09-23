@@ -2,7 +2,11 @@ body {
   font-family: "DejaVu Sans", "sans-serif";
   font-size: 9pt; }
   body #root {
-    width: 100%; }
+    width: 1024px; }
+    body #root .options span {
+      margin-right: 1ex; }
+    body #root .options input, body #root .options select {
+      margin-left: 1ex; }
     body #root .options input.maxLength {
       width: 100px; }
     body #root .bookmarks {
@@ -14,12 +18,6 @@ body {
         height: 45px;
         margin-bottom: 5px;
         padding: 5px; }
-        body #root .bookmarks .bookmark.prio5 {
-          background-color: #fbb; }
-        body #root .bookmarks .bookmark.prio10 {
-          background-color: #fdd; }
-        body #root .bookmarks .bookmark.prio20 {
-          background-color: #fdfdfd; }
         body #root .bookmarks .bookmark .favicon {
           height: 100%;
           width: 45px;
@@ -66,15 +64,13 @@ body {
               width: 100px; }
         body #root .bookmarks .bookmark .actions {
           height: 100%;
-          width: 400px;
+          width: 230px;
           float: right; }
           body #root .bookmarks .bookmark .actions button, body #root .bookmarks .bookmark .actions select {
             font-size: 9pt;
             position: relative;
             top: 12px;
             left: 12px; }
-            body #root .bookmarks .bookmark .actions button.setTag, body #root .bookmarks .bookmark .actions select.setTag {
-              width: 165px; }
           body #root .bookmarks .bookmark .actions option.low {
             color: #393; }
           body #root .bookmarks .bookmark .actions option.normal {

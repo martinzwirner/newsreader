@@ -14,8 +14,8 @@
 
 # backend
 
+- **save last index on import** (0.75h)
 - **load content correctly (l-iz.de, enorm-magazin.de...)** (1h)
-- save last index on import
 - insert foreign keys correctly
 ALTER TABLE bookmarks ADD COLUMN subjectName VARCHAR(255) REFERENCES `subjects`(`name`) ON DELETE SET NULL ON UPDATE CASCADE;
 - detect videos (1h)
@@ -40,16 +40,17 @@ ALTER TABLE bookmarks ADD COLUMN subjectName VARCHAR(255) REFERENCES `subjects`(
 
 # frontend
 
-- **add grouping** (1h)
+- **show views items** (0.25h)
 - **add item from frontend** (0.5h)
-- **overall reading time for the list**
-- **show items from last import**
-- **different highlighting by type** (0,5h)
-- **add predefined filters** (0.5h)
 - **import from frontend** (1h)
 - **authentication**: (2h)
 https://github.com/mweibel/connect-session-sequelize
 passport?
+- add grouping (1h)
+- overall reading time for the list
+- show items from last import
+- different highlighting by type (0,5h)
+- add predefined filters (0.5h)
 - save date when an item was read
 - better export
 remove favicons, one line per link

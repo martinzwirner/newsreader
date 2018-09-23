@@ -7,8 +7,8 @@ class Options extends React.Component {
         <PriorityFilter filters={this.props.filters} setFilter={this.props.setFilter} />
         <ContentTypeFilter filters={this.props.filters} setFilter={this.props.setFilter} />
         <LengthFilter filters={this.props.filters} setFilter={this.props.setFilter} /><br />
+        <IsViewedFilter filters={this.props.filters} setFilter={this.props.setFilter} />
         <Sorting sorting={this.props.sorting} setSorting={this.props.setSorting} />
-        <View isExport={this.props.isExport} setIsExport={this.props.setIsExport} />
       </div>
     );
     // language, lenght, created
@@ -40,7 +40,6 @@ class Sorting extends React.Component {
           <option value="url">URL</option>
           <option value="contentLengthInCharacters">Content length</option>
           <option value="-createdAt">Date added</option>
-          <option value="tagName">Tag</option>
         </select>
       </span>
     );
@@ -254,18 +253,25 @@ class ContentTypeFilter extends React.Component {
   }
 }
 
-class View extends React.Component {
+class IsViewedFilter extends React.Component {
 
-  setIsExport(e) {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-    this.props.setIsExport(e.target.checked);
+  setFilter(e) {
+
+    this.props.setFilter({ isViewed: e.target.checked });
   }
 
   render() {
 
     return (
-      <span><input type="checkbox" defaultChecked={this.props.isExport}
-                   onChange={this.setIsExport.bind(this)} /> Export</span>
+      <span>
+        <input type="checkbox" checked={this.props.filters.isViewed} onChange={this.setFilter.bind(this)} />Show viewed items
+      </span>
     );
   }
 }
+

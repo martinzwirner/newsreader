@@ -53,13 +53,9 @@ var Bookmark = function (_React$Component) {
       var length = bookmark.data().contentLengthInCharacters;
       var lengthClass = length > 10000 ? "long" : length > 5000 ? "middle" : "short";
 
-      var cssClasses = ['bookmark'];
-      cssClasses.push('prio' + bookmark.data().priorityValue);
-      cssClasses.push(bookmark.data().contentType);
-
       return React.createElement(
         'div',
-        { className: cssClasses.join(' '), key: bookmark.data().id },
+        { className: 'bookmark', key: bookmark.data().id },
         React.createElement(
           'div',
           { className: 'favicon' },

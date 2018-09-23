@@ -39,9 +39,7 @@ var Bookmarks = function (_React$Component) {
 
       var params = props.data;
       params.isProcessed = true;
-      params.isViewed = false;
       params.orderby = props.sorting;
-      params.count = 500; // TODO: make configurable
       console.log('params: ', params);
 
       myGlobals.bookmarksCollection.getAll(params).then(function (response) {
@@ -72,7 +70,7 @@ var Bookmarks = function (_React$Component) {
 
       //let sortedBookmarks = this.state.bookmarks.sort((a, b) => a.data().calculatedPriority - b.data().calculatedPriority);
       var bookmarkElements = this.state.bookmarks.map(function (bookmark) {
-        return _this3.props.isExport ? React.createElement(ExportBookmark, { key: bookmark.data().id, data: bookmark }) : React.createElement(Bookmark, { key: bookmark.data().id, data: bookmark, updateList: _this3.updateList.bind(_this3) });
+        return React.createElement(Bookmark, { key: bookmark.data().id, data: bookmark, updateList: _this3.updateList.bind(_this3) });
       });
 
       return React.createElement(

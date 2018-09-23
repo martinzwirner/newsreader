@@ -18,7 +18,6 @@ var App = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
     _this.state = {
-      isExport: false,
       filters: _this.getEffectiveFilters(),
       sorting: "contentLengthInCharacters"
     };
@@ -30,7 +29,8 @@ var App = function (_React$Component) {
     value: function getEffectiveFilters() {
 
       var effectiveFilters = {
-        minPriority: 15 // normal
+        minPriority: 15, // normal
+        isViewed: false
       };
 
       var userFilters = localStorage.filters ? JSON.parse(localStorage.filters) : null;
@@ -68,12 +68,6 @@ var App = function (_React$Component) {
       localStorage.sorting = change;
     }
   }, {
-    key: "setIsExport",
-    value: function setIsExport(newValue) {
-
-      this.setState({ isExport: newValue });
-    }
-  }, {
     key: "render",
     value: function render() {
       return React.createElement(
@@ -82,11 +76,8 @@ var App = function (_React$Component) {
         React.createElement(Options, { filters: this.state.filters,
           sorting: this.state.sorting,
           setFilter: this.setFilter.bind(this),
-          setSorting: this.setSorting.bind(this),
-          isExport: this.state.isExport,
-          setIsExport: this.setIsExport.bind(this)
-        }),
-        React.createElement(Bookmarks, { data: this.state.filters, sorting: this.state.sorting, isExport: this.state.isExport })
+          setSorting: this.setSorting.bind(this) }),
+        React.createElement(Bookmarks, { data: this.state.filters, sorting: this.state.sorting })
       );
     }
   }]);

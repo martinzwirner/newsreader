@@ -28,8 +28,8 @@ var Options = function (_React$Component) {
         React.createElement(ContentTypeFilter, { filters: this.props.filters, setFilter: this.props.setFilter }),
         React.createElement(LengthFilter, { filters: this.props.filters, setFilter: this.props.setFilter }),
         React.createElement("br", null),
-        React.createElement(Sorting, { sorting: this.props.sorting, setSorting: this.props.setSorting }),
-        React.createElement(View, { isExport: this.props.isExport, setIsExport: this.props.setIsExport })
+        React.createElement(IsViewedFilter, { filters: this.props.filters, setFilter: this.props.setFilter }),
+        React.createElement(Sorting, { sorting: this.props.sorting, setSorting: this.props.setSorting })
       );
       // language, lenght, created
     }
@@ -96,11 +96,6 @@ var Sorting = function (_React$Component2) {
             "option",
             { value: "-createdAt" },
             "Date added"
-          ),
-          React.createElement(
-            "option",
-            { value: "tagName" },
-            "Tag"
           )
         )
       );
@@ -453,20 +448,23 @@ var ContentTypeFilter = function (_React$Component8) {
   return ContentTypeFilter;
 }(React.Component);
 
-var View = function (_React$Component9) {
-  _inherits(View, _React$Component9);
+var IsViewedFilter = function (_React$Component9) {
+  _inherits(IsViewedFilter, _React$Component9);
 
-  function View() {
-    _classCallCheck(this, View);
+  function IsViewedFilter(props) {
+    _classCallCheck(this, IsViewedFilter);
 
-    return _possibleConstructorReturn(this, (View.__proto__ || Object.getPrototypeOf(View)).apply(this, arguments));
+    var _this11 = _possibleConstructorReturn(this, (IsViewedFilter.__proto__ || Object.getPrototypeOf(IsViewedFilter)).call(this, props));
+
+    _this11.state = {};
+    return _this11;
   }
 
-  _createClass(View, [{
-    key: "setIsExport",
-    value: function setIsExport(e) {
+  _createClass(IsViewedFilter, [{
+    key: "setFilter",
+    value: function setFilter(e) {
 
-      this.props.setIsExport(e.target.checked);
+      this.props.setFilter({ isViewed: e.target.checked });
     }
   }, {
     key: "render",
@@ -475,13 +473,12 @@ var View = function (_React$Component9) {
       return React.createElement(
         "span",
         null,
-        React.createElement("input", { type: "checkbox", defaultChecked: this.props.isExport,
-          onChange: this.setIsExport.bind(this) }),
-        " Export"
+        React.createElement("input", { type: "checkbox", checked: this.props.filters.isViewed, onChange: this.setFilter.bind(this) }),
+        "Show viewed items"
       );
     }
   }]);
 
-  return View;
+  return IsViewedFilter;
 }(React.Component);
 //# sourceMappingURL=Options.js.map
