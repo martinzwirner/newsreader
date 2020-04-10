@@ -23,7 +23,8 @@
     "rimraf-promise": "^2.0.0",
     "sequelize": "^4.22.5",
     "sqlite3": "^3.1.13",
-    "winston": "^2.4.0"
+    "winston": "^2.4.0",
+    "winston-daily-rotate-file": "^3.3.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
