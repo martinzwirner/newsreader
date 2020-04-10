@@ -4,11 +4,13 @@ class Options extends React.Component {
     return (
       <div className='options'>
         <DateFilter filters={this.props.filters} setFilter={this.props.setFilter} />
+        <TagFilter filters={this.props.filters} setFilter={this.props.setFilter} />
         <PriorityFilter filters={this.props.filters} setFilter={this.props.setFilter} />
         <ContentTypeFilter filters={this.props.filters} setFilter={this.props.setFilter} />
-        <LengthFilter filters={this.props.filters} setFilter={this.props.setFilter} /><br />
+        <LengthFilter filters={this.props.filters} setFilter={this.props.setFilter} />
         <IsViewedFilter filters={this.props.filters} setFilter={this.props.setFilter} />
         <Sorting sorting={this.props.sorting} setSorting={this.props.setSorting} />
+        <View isExport={this.props.isExport} setIsExport={this.props.setIsExport} />
       </div>
     );
     // language, lenght, created
@@ -40,6 +42,7 @@ class Sorting extends React.Component {
           <option value="url">URL</option>
           <option value="contentLengthInCharacters">Content length</option>
           <option value="-createdAt">Date added</option>
+          <option value="tagName">Tag</option>
         </select>
       </span>
     );
@@ -218,6 +221,27 @@ class PriorityFilter extends React.Component {
           <option value="20">Low</option>
           <option value="15">Normal</option>
           <option value="10">High</option>
+          <option value="5">Urgent</option>
+        </select>
+      </span>
+    );
+  }
+}
+class TagFilter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  setFilter(e) {
+    const value = e.target.value === "" ? undefined : e.target.value;
+    this.props.setFilter({ tagName: value });
+  }
+  render() {
+    return (
+      <span>
+        Tag:
+        <select value={this.props.filters.tagName} onChange={this.setFilter.bind(this)}>
+            <option value="">-</option>
         </select>
       </span>
     );
@@ -253,6 +277,21 @@ class ContentTypeFilter extends React.Component {
   }
 }
 
+class View extends React.Component {
+
+  setIsExport(e) {
+
+    this.props.setIsExport(e.target.checked);
+  }
+
+  render() {
+
+    return (
+      <span><input type="checkbox" defaultChecked={this.props.isExport}
+                   onChange={this.setIsExport.bind(this)} /> Export</span>
+    );
+  }
+}
 class IsViewedFilter extends React.Component {
 
   constructor(props) {

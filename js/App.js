@@ -6,6 +6,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
+      isExport: false,
       filters: this.getEffectiveFilters(),
       sorting: "contentLengthInCharacters"
     };
@@ -52,14 +53,22 @@ class App extends React.Component {
     localStorage.sorting = change;
   }
 
+  setIsExport(newValue) {
+
+    this.setState({ isExport: newValue });
+  }
+
   render() {
     return (
       <div className='container'>
         <Options filters={this.state.filters}
                  sorting={this.state.sorting}
                  setFilter={this.setFilter.bind(this)}
-                 setSorting={this.setSorting.bind(this)} />
-        <Bookmarks data={this.state.filters} sorting={this.state.sorting} />
+                 setSorting={this.setSorting.bind(this)}
+                 isExport={this.state.isExport}
+                 setIsExport={this.setIsExport.bind(this)}
+        />
+        <Bookmarks data={this.state.filters} sorting={this.state.sorting} isExport={this.state.isExport} />
       </div>
     );
   }

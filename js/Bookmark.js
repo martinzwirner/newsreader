@@ -24,6 +24,9 @@ class Bookmark extends React.Component {
     this.setProperty('priorityValue', evt.target.value);
   }
 
+  setTag(evt) {
+    this.setProperty('tagName', evt.target.value);
+  }
   render() {
 
     const bookmark = this.props.data;
@@ -33,14 +36,21 @@ class Bookmark extends React.Component {
     const length = bookmark.data().contentLengthInCharacters;
     const lengthClass = length > 10000 ? "long" : (length > 5000 ? "middle" : "short");
 
+    const cssClasses = ['bookmark'];
+    cssClasses.push('prio' + bookmark.data().priorityValue);
+    cssClasses.push(bookmark.data().contentType);
     return (
-      <div className="bookmark" key={bookmark.data().id}>
+      <div className={cssClasses.join(' ')} key={bookmark.data().id}>
         <div className="favicon"><img src={"favicons/" + link.hostname + ".ico"} /></div>
         <div className="actions">
+          <select className="setTag" value={bookmark.data().tagName} onChange={this.setTag.bind(this)}>
+            <option value="">-</option>
+          </select>
           <select className="setPriority" value={bookmark.data().priorityValue} onChange={this.setPriority.bind(this)}>
             <option value="20" className="low">Low</option>
             <option value="15" className="normal">Normal</option>
             <option value="10" className="high">High</option>
+            <option value="5" className="urgent">Urgent</option>
           </select>
           <select className="setContentType" value={bookmark.data().contentType} onChange={this.setContentType.bind(this)}>
             <option value="text" className="text">Text</option>

@@ -9,12 +9,13 @@ body {
 
   #root {
 
-    width: 1024px;
+    width: 100%;
 
     .options {
 
       span {
         margin-right: 1ex;
+        display: inline-block;
       }
 
       input, select {
@@ -39,6 +40,9 @@ body {
         height: 45px;
         margin-bottom: 5px;
         padding: 5px;
+        &.prio5 { background-color: #fbb; } // urgent
+        &.prio10 { background-color: #fdd; } // high
+        &.prio20 { background-color: #fdfdfd; } // low
 
         .favicon {
 
@@ -117,7 +121,7 @@ body {
         .actions {
 
           height: 100%;
-          width: 230px;
+          width: 400px;
           float:right;
 
           button, select {
@@ -125,6 +129,9 @@ body {
             position: relative;
             top: 12px;
             left: 12px;
+            &.setTag {
+              width: 165px;
+            }
           }
 
           option {
