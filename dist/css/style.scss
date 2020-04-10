@@ -40,7 +40,9 @@ body {
         height: 45px;
         margin-bottom: 5px;
         padding: 5px;
-        &.prio5 { background-color: #fbb; } // urgent
+        &.prio2 { background-color: #f77; } // immediate
+        &.prio5 { background-color: #f99; } // urgent
+        &.prio8 { background-color: #fbb; } // higher
         &.prio10 { background-color: #fdd; } // high
         &.prio20 { background-color: #fdfdfd; } // low
 

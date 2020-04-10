@@ -221,7 +221,9 @@ class PriorityFilter extends React.Component {
           <option value="20">Low</option>
           <option value="15">Normal</option>
           <option value="10">High</option>
+          <option value="8">Higher</option>
           <option value="5">Urgent</option>
+          <option value="2">Immediate</option>
         </select>
       </span>
     );

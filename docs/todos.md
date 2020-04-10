@@ -1,6 +1,9 @@
 # how to compile react files
 
-./node_modules/.bin/babel js --out-dir dist/js --source-maps
+- linux:
+```./node_modules/.bin/babel js --out-dir dist/js --source-maps```
+- windows:
+```babel js --out-dir dist/js --source-maps```
 
 # bugs
 
