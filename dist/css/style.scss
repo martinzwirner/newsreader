@@ -40,10 +40,22 @@ body {
         height: 45px;
         margin-bottom: 5px;
         padding: 5px;
+
         &.prio2 { background-color: #f77; } // immediate
         &.prio5 { background-color: #f99; } // urgent
         &.prio8 { background-color: #fbb; } // higher
         &.prio10 { background-color: #fdd; } // high
+
+        &.video.prio2 { background-color: #77f; } // immediate
+        &.video.prio5 { background-color: #99f; } // urgent
+        &.video.prio8 { background-color: #bbf; } // higher
+        &.video.prio10 { background-color: #ddf; } // high
+
+        &.audio.prio2 { background-color: #7f7; } // immediate
+        &.audio.prio5 { background-color: #9f9; } // urgent
+        &.audio.prio8 { background-color: #bfb; } // higher
+        &.audio.prio10 { background-color: #dfd; } // high
+
         &.prio20 { background-color: #fdfdfd; } // low
 
         .favicon {

@@ -38,6 +38,30 @@ body #root .bookmarks .bookmark.prio8 {
 body #root .bookmarks .bookmark.prio10 {
   background-color: #fdd;
 }
+body #root .bookmarks .bookmark.video.prio2 {
+  background-color: #77f;
+}
+body #root .bookmarks .bookmark.video.prio5 {
+  background-color: #99f;
+}
+body #root .bookmarks .bookmark.video.prio8 {
+  background-color: #bbf;
+}
+body #root .bookmarks .bookmark.video.prio10 {
+  background-color: #ddf;
+}
+body #root .bookmarks .bookmark.audio.prio2 {
+  background-color: #7f7;
+}
+body #root .bookmarks .bookmark.audio.prio5 {
+  background-color: #9f9;
+}
+body #root .bookmarks .bookmark.audio.prio8 {
+  background-color: #bfb;
+}
+body #root .bookmarks .bookmark.audio.prio10 {
+  background-color: #dfd;
+}
 body #root .bookmarks .bookmark.prio20 {
   background-color: #fdfdfd;
 }
