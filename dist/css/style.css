@@ -12,7 +12,7 @@ body #root .options span {
 body #root .options input, body #root .options select {
   margin-left: 1ex;
 }
-body #root .options input.maxLength {
+body #root .options input.maxLength, body #root .options input.minLength {
   width: 100px;
 }
 body #root .bookmarks {

@@ -146,7 +146,12 @@ class LengthFilter extends React.Component {
     this.state = {};
   }
 
-  setFilter(e) {
+  setMinFilter(e) {
+
+    this.props.setFilter({ minLength: e.target.value });
+  }
+
+  setMaxFilter(e) {
 
     this.props.setFilter({ maxLength: e.target.value });
   }
@@ -154,7 +159,10 @@ class LengthFilter extends React.Component {
   render() {
 
     return (
-      <span>Max length: <input type="text" className="maxLength" value={this.props.filters.maxLength} onChange={this.setFilter.bind(this)} /></span>
+      <span>
+        Min length: <input type="text" className="minLength" value={this.props.filters.minLength} onChange={this.setMinFilter.bind(this)} />
+        Max length: <input type="text" className="maxLength" value={this.props.filters.maxLength} onChange={this.setMaxFilter.bind(this)} />
+      </span>
     );
   }
 }
