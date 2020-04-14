@@ -213,10 +213,16 @@ class PriorityFilter extends React.Component {
     this.state = {};
   }
 
-  setFilter(e) {
+  setMinFilter(e) {
 
     const value = e.target.value === "" ? undefined : e.target.value;
     this.props.setFilter({ minPriority: value });
+  }
+
+  setMaxFilter(e) {
+
+    const value = e.target.value === "" ? undefined : e.target.value;
+    this.props.setFilter({ maxPriority: value });
   }
 
   render() {
@@ -224,7 +230,17 @@ class PriorityFilter extends React.Component {
     return (
       <span>
         Min prio:
-        <select value={this.props.filters.minPriority} onChange={this.setFilter.bind(this)}>
+        <select value={this.props.filters.minPriority} onChange={this.setMinFilter.bind(this)}>
+          <option value="">Min priority...</option>
+          <option value="20">Low</option>
+          <option value="15">Normal</option>
+          <option value="10">High</option>
+          <option value="8">Higher</option>
+          <option value="5">Urgent</option>
+          <option value="2">Immediate</option>
+        </select>
+        Max prio:
+        <select value={this.props.filters.maxPriority} onChange={this.setMaxFilter.bind(this)}>
           <option value="">Min priority...</option>
           <option value="20">Low</option>
           <option value="15">Normal</option>
