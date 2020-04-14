@@ -297,6 +297,7 @@ class ContentTypeFilter extends React.Component {
           <option value="">All</option>
           <option value="text">Texts</option>
           <option value="video">Videos</option>
+          <option value="audio">Audios</option>
         </select>
       </span>
     );
