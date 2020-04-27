@@ -1,13 +1,18 @@
 body {
-  font-family: "DejaVu Sans", "sans-serif";
+  font-family: "DejaVu Sans", sans-serif;
   font-size: 9pt;
 }
 body #root {
   width: 100%;
 }
+body #root .options div {
+  margin-bottom: 1ex;
+}
 body #root .options span {
   margin-right: 1ex;
-  display: inline-block;
+}
+body #root .options span.label {
+  color: #ccc;
 }
 body #root .options input, body #root .options select {
   margin-left: 1ex;
@@ -88,7 +93,7 @@ body #root .bookmarks .bookmark .favicon img {
 }
 body #root .bookmarks .bookmark .link {
   height: 50%;
-  font-size: 120%;
+  font-size: 110%;
   font-weight: bold;
   overflow: hidden;
   white-space: nowrap;

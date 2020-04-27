@@ -26,7 +26,7 @@ $color-secondary-2-4: #7E68BB;
 
 body {
 
-  font-family: "DejaVu Sans", "sans-serif";
+  font-family: "DejaVu Sans", sans-serif;
   font-size: 9pt;
 
   #root {
@@ -35,9 +35,17 @@ body {
 
     .options {
 
+      div {
+        margin-bottom: 1ex;
+      }
+
       span {
         margin-right: 1ex;
-        display: inline-block;
+        //display: block;
+
+        &.label {
+          color: #ccc;
+        }
       }
 
       input, select {
@@ -104,7 +112,7 @@ body {
 
         .link {
           height: 50%;
-          font-size: 120%;
+          font-size: 110%;
           font-weight: bold;
           overflow: hidden;
           white-space: nowrap;
