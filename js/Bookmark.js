@@ -60,7 +60,7 @@ class Bookmark extends React.Component {
             <option value="audio" className="audio">Audio</option>
             <option value="image" className="image">Image</option>
           </select>
-          <button className="markAsDone" onClick={this.setProperty.bind(this, 'isViewed', true)}>done</button>
+          <button className="markAsDone" onClick={this.setProperty.bind(this, 'isViewed', !bookmark.data().isViewed)}>done</button>
         </div>
         <div className="link"><a href={bookmark.data().url}>{bookmark.data().title || "(No title)"}</a></div>
         <div className="metaData">
