@@ -242,6 +242,7 @@ class PriorityFilter extends React.Component {
           <option value="10">High</option>
           <option value="8">Higher</option>
           <option value="5">Urgent</option>
+          <option value="4">Super urgent</option>
           <option value="2">Immediate</option>
         </select>
         Max prio:
@@ -252,6 +253,7 @@ class PriorityFilter extends React.Component {
           <option value="10">High</option>
           <option value="8">Higher</option>
           <option value="5">Urgent</option>
+          <option value="4">Super urgent</option>
           <option value="2">Immediate</option>
         </select>
       </div>
