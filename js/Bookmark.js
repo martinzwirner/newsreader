@@ -51,8 +51,8 @@ class Bookmark extends React.Component {
             <option value="15" className="normal">Normal</option>
             <option value="10" className="high">High</option>
             <option value="8" className="higher">Higher</option>
-            <option value="4" className="superurgent">Super urgent</option>
             <option value="5" className="urgent">Urgent</option>
+            <option value="4" className="superurgent">Super urgent</option>
             <option value="2" className="immediate">Immediate</option>
           </select>
           <select className="setContentType" value={bookmark.data().contentType} onChange={this.setContentType.bind(this)}>
