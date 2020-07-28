@@ -70,34 +70,6 @@ body {
         margin-bottom: 5px;
         padding: 5px;
 
-        background-color: #fafafa; // normal
-
-        // text
-        &.prio2 { background-color: $color-primary-4; } // immediate
-        &.prio4 { background-color: $color-primary-3; } // super urgent
-        &.prio5 { background-color: $color-primary-3; } // urgent
-        &.prio8 { background-color: $color-primary-0; } // higher
-        &.prio10 { background-color: $color-primary-2; } // high
-        &.prio15 { background-color: $color-primary-1; } // normal
-
-        // video
-        &.video.prio2 { background-color: $color-secondary-2-4; } // immediate
-        &.video.prio4 { background-color: $color-secondary-2-3; } // super urgent
-        &.video.prio5 { background-color: $color-secondary-2-3; } // urgent
-        &.video.prio8 { background-color: $color-secondary-2-0; } // higher
-        &.video.prio10 { background-color: $color-secondary-2-2; } // high
-        &.video.prio15 { background-color: $color-secondary-2-1; } // normal
-
-        // audio
-        &.audio.prio2 { background-color: $color-secondary-1-4; } // immediate
-        &.audio.prio4 { background-color: $color-secondary-1-3; } // super urgent
-        &.audio.prio5 { background-color: $color-secondary-1-3; } // urgent
-        &.audio.prio8 { background-color: $color-secondary-1-0; } // higher
-        &.audio.prio10 { background-color: $color-secondary-1-2; } // high
-        &.audio.prio15 { background-color: $color-secondary-1-1; } // normal
-
-        &.prio20 { background-color: #fdfdfd; } // low
-
         .favicon {
 
           height: 100%;
@@ -175,31 +147,59 @@ body {
         .actions {
 
           height: 100%;
-          width: 400px;
-          float:right;
+          width: 320px;
+          float: right;
 
-          button, select {
+          button {
             font-size: 9pt;
-            position: relative;
-            top: 12px;
-            left: 12px;
-            &.setTag {
-              width: 165px;
+          }
+
+          .line {
+            float: left;
+            height: 33%;
+
+            button {
+              width: 45px;
+              border-width: 0px;
             }
           }
 
-          option {
-            &.low { color: $low; }
-            &.normal { background-color: $middle; }
-            &.high { color: $high; }
-
-            .text {}
-            .video {}
-            .audio {}
-            .image {}
+          .markAsDone {
+            float: right;
+            height: 100%
           }
         }
       }
     }
   }
+}
+
+.bookmark, .actions button {
+
+  background-color: #fafafa; // normal
+  &.prio20 { background-color: #fdfdfd; } // low
+
+  // text
+  &.text.prio2 { background-color: $color-primary-4; } // immediate
+  &.text.prio4 { background-color: $color-primary-3; } // super urgent
+  &.text.prio5 { background-color: $color-primary-3; } // urgent
+  &.text.prio8 { background-color: $color-primary-0; } // higher
+  &.text.prio10 { background-color: $color-primary-2; } // high
+  &.text.prio15 { background-color: $color-primary-1; } // normal
+
+  // video
+  &.video.prio2 { background-color: $color-secondary-2-4; } // immediate
+  &.video.prio4 { background-color: $color-secondary-2-3; } // super urgent
+  &.video.prio5 { background-color: $color-secondary-2-3; } // urgent
+  &.video.prio8 { background-color: $color-secondary-2-0; } // higher
+  &.video.prio10 { background-color: $color-secondary-2-2; } // high
+  &.video.prio15 { background-color: $color-secondary-2-1; } // normal
+
+  // audio
+  &.audio.prio2 { background-color: $color-secondary-1-4; } // immediate
+  &.audio.prio4 { background-color: $color-secondary-1-3; } // super urgent
+  &.audio.prio5 { background-color: $color-secondary-1-3; } // urgent
+  &.audio.prio8 { background-color: $color-secondary-1-0; } // higher
+  &.audio.prio10 { background-color: $color-secondary-1-2; } // high
+  &.audio.prio15 { background-color: $color-secondary-1-1; } // normal
 }

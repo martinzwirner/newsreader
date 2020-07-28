@@ -25,8 +25,16 @@ class Bookmark extends React.Component {
   }
 
   setTag(evt) {
+
     this.setProperty('tagName', evt.target.value);
   }
+
+  setTypeAndPriority(type, prio) {
+
+    this.setProperty('contentType', type);
+    this.setProperty('priorityValue', prio);
+  }
+
   render() {
 
     const bookmark = this.props.data;
@@ -43,25 +51,34 @@ class Bookmark extends React.Component {
       <div className={cssClasses.join(' ')} key={bookmark.data().id}>
         <div className="favicon"><img src={"favicons/" + link.hostname + ".ico"} /></div>
         <div className="actions">
-          <select className="setTag" value={bookmark.data().tagName} onChange={this.setTag.bind(this)}>
-            <option value="">-</option>
-          </select>
-          <select className="setPriority" value={bookmark.data().priorityValue} onChange={this.setPriority.bind(this)}>
-            <option value="20" className="low">Low</option>
-            <option value="15" className="normal">Normal</option>
-            <option value="10" className="high">High</option>
-            <option value="8" className="higher">Higher</option>
-            <option value="5" className="urgent">Urgent</option>
-            <option value="4" className="superurgent">Super urgent</option>
-            <option value="2" className="immediate">Immediate</option>
-          </select>
-          <select className="setContentType" value={bookmark.data().contentType} onChange={this.setContentType.bind(this)}>
-            <option value="text" className="text">Text</option>
-            <option value="video" className="video">Video</option>
-            <option value="audio" className="audio">Audio</option>
-            <option value="image" className="image">Image</option>
-          </select>
           <button className="markAsDone" onClick={this.setProperty.bind(this, 'isViewed', !bookmark.data().isViewed)}>done</button>
+
+          <div className="line">
+            <button className="text prio15" onClick={this.setTypeAndPriority.bind(this, 'text', 15)}>T N</button>
+            <button className="text prio10" onClick={this.setTypeAndPriority.bind(this, 'text', 10)}>T H</button>
+            <button className="text prio8" onClick={this.setTypeAndPriority.bind(this, 'text', 8)}>T HH</button>
+            <button className="text prio5" onClick={this.setTypeAndPriority.bind(this, 'text', 5)}>T U</button>
+            <button className="text prio4" onClick={this.setTypeAndPriority.bind(this, 'text', 4)}>T SU</button>
+            <button className="text prio2" onClick={this.setTypeAndPriority.bind(this, 'text', 2)}>T I</button>
+          </div>
+
+          <div className="line">
+            <button className="video prio15" onClick={this.setTypeAndPriority.bind(this, 'video', 15)}>V N</button>
+            <button className="video prio10" onClick={this.setTypeAndPriority.bind(this, 'video', 10)}>V H</button>
+            <button className="video prio8" onClick={this.setTypeAndPriority.bind(this, 'video', 8)}>V HH</button>
+            <button className="video prio5" onClick={this.setTypeAndPriority.bind(this, 'video', 5)}>V U</button>
+            <button className="video prio4" onClick={this.setTypeAndPriority.bind(this, 'video', 4)}>V SU</button>
+            <button className="video prio2" onClick={this.setTypeAndPriority.bind(this, 'video', 2)}>V I</button>
+          </div>
+
+          <div className="line">
+            <button className="audio prio15" onClick={this.setTypeAndPriority.bind(this, 'audio', 15)}>A N</button>
+            <button className="audio prio10" onClick={this.setTypeAndPriority.bind(this, 'audio', 10)}>A H</button>
+            <button className="audio prio8" onClick={this.setTypeAndPriority.bind(this, 'audio', 8)}>A HH</button>
+            <button className="audio prio5" onClick={this.setTypeAndPriority.bind(this, 'audio', 5)}>A U</button>
+            <button className="audio prio4" onClick={this.setTypeAndPriority.bind(this, 'audio', 4)}>A SU</button>
+            <button className="audio prio2" onClick={this.setTypeAndPriority.bind(this, 'audio', 2)}>A I</button>
+          </div>
         </div>
         <div className="link"><a href={bookmark.data().url}>{bookmark.data().title || "(No title)"}</a></div>
         <div className="metaData">
