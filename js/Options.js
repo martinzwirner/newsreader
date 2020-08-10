@@ -7,6 +7,7 @@ class Options extends React.Component {
         <PriorityFilter filters={this.props.filters} setFilter={this.props.setFilter} />
         <ContentTypeFilter filters={this.props.filters} setFilter={this.props.setFilter} />
         <LengthFilter filters={this.props.filters} setFilter={this.props.setFilter} />
+        <ContainsFilter filters={this.props.filters} setFilter={this.props.setFilter} />
         <Sorting sorting={this.props.sorting} setSorting={this.props.setSorting} />
         <div>
           <IsViewedFilter filters={this.props.filters} setFilter={this.props.setFilter} />
@@ -165,6 +166,29 @@ class LengthFilter extends React.Component {
         <span className="label">Length</span>
         Min length: <input type="text" className="minLength" value={this.props.filters.minLength} onChange={this.setMinFilter.bind(this)} />
         Max length: <input type="text" className="maxLength" value={this.props.filters.maxLength} onChange={this.setMaxFilter.bind(this)} />
+      </div>
+    );
+  }
+}
+
+class ContainsFilter extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  setContainsFilter(e) {
+
+    this.props.setFilter({ contains: e.target.value });
+  }
+
+  render() {
+
+    return (
+      <div>
+        <span className="label">Contains</span>
+        <input type="text" className="contains" value={this.props.filters.contains} onChange={this.setContainsFilter.bind(this)} />
       </div>
     );
   }

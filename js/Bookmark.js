@@ -80,7 +80,7 @@ class Bookmark extends React.Component {
             <button className="audio prio2" onClick={this.setTypeAndPriority.bind(this, 'audio', 2)}>A I</button>
           </div>
         </div>
-        <div className="link"><a href={bookmark.data().url}>{bookmark.data().title || "(No title)"}</a></div>
+        <div className="link"><a href={bookmark.data().url}>{bookmark.data().title || bookmark.data().url}</a></div>
         <div className="metaData">
           <div className="hostname">{link.hostname}</div>
           <div className={'languageCode ' + bookmark.data().languageCode}>{bookmark.data().languageCode || "?"}</div>
