@@ -5,6 +5,11 @@ class Bookmark extends React.Component {
     this.state = {};
   }
 
+  componentDidMount() {
+
+    this.setState({note: this.props.data.data().note});
+  }
+
   setProperty(prop, value) {
 
     const bookmark = this.props.data;
@@ -35,6 +40,11 @@ class Bookmark extends React.Component {
     this.setProperty('priorityValue', prio);
   }
 
+  changeNote(evt) {
+
+    this.setState({note: evt.target.value});
+  }
+
   setNote(evt) {
 
     this.setProperty('note', evt.target.value);
@@ -52,6 +62,7 @@ class Bookmark extends React.Component {
     const cssClasses = ['bookmark'];
     cssClasses.push('prio' + bookmark.data().priorityValue);
     cssClasses.push(bookmark.data().contentType);
+
     return (
       <div className={cssClasses.join(' ')} key={bookmark.data().id}>
         <div className="favicon"><img src={"favicons/" + link.hostname + ".ico"} /></div>
@@ -92,7 +103,7 @@ class Bookmark extends React.Component {
           <div className={'contentLength ' + lengthClass}>{bookmark.data().contentLengthInCharacters}</div>
           <div className="priority">{bookmark.data().priorityValue}</div>
           <div className="createdAt">{moment(bookmark.data().createdAt).format("DD.MM.YYYY")}</div>
-          <div className="note"><input type="text"value={bookmark.data().note} onChange={this.setNote.bind(this)} /></div>
+          <div className="note"><input type="text" value={this.state.note} onChange={this.changeNote.bind(this)} onBlur={this.setNote.bind(this)} /></div>
         </div>
       </div>
     );
