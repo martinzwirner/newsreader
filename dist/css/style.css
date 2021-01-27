@@ -89,9 +89,14 @@ body #root .bookmarks .bookmark .metaData div.priority {
 body #root .bookmarks .bookmark .metaData div.createdAt {
   width: 100px;
 }
+body #root .bookmarks .bookmark .metaData div input {
+  font-size: 90%;
+  background-color: rgba(255, 255, 255, 0.4);
+  border: none;
+}
 body #root .bookmarks .bookmark .actions {
   height: 100%;
-  width: 320px;
+  width: 350px;
   float: right;
 }
 body #root .bookmarks .bookmark .actions button {
@@ -102,12 +107,14 @@ body #root .bookmarks .bookmark .actions .line {
   height: 33%;
 }
 body #root .bookmarks .bookmark .actions .line button {
-  width: 45px;
+  font-weight: bold;
+  width: 50px;
   border-width: 0px;
 }
 body #root .bookmarks .bookmark .actions .markAsDone {
   float: right;
   height: 100%;
+  background-color: #99dd99;
 }
 
 .bookmark, .actions button {
@@ -117,58 +124,58 @@ body #root .bookmarks .bookmark .actions .markAsDone {
   background-color: #fdfdfd;
 }
 .bookmark.text.prio2, .actions button.text.prio2 {
-  background-color: #E97B79;
+  background-color: #e65353;
 }
 .bookmark.text.prio4, .actions button.text.prio4 {
-  background-color: #F9A6A4;
+  background-color: #eb7171;
 }
 .bookmark.text.prio5, .actions button.text.prio5 {
-  background-color: #F9A6A4;
+  background-color: #f08989;
 }
 .bookmark.text.prio8, .actions button.text.prio8 {
-  background-color: #FDBCBA;
+  background-color: #f59f9f;
 }
 .bookmark.text.prio10, .actions button.text.prio10 {
-  background-color: #FFCECD;
+  background-color: #fabebe;
 }
 .bookmark.text.prio15, .actions button.text.prio15 {
-  background-color: #FFDDDD;
+  background-color: #ffdbdb;
 }
 .bookmark.video.prio2, .actions button.video.prio2 {
-  background-color: #7E68BB;
+  background-color: #657ae6;
 }
 .bookmark.video.prio4, .actions button.video.prio4 {
-  background-color: #9684C8;
+  background-color: #7a8deb;
 }
 .bookmark.video.prio5, .actions button.video.prio5 {
-  background-color: #9684C8;
+  background-color: #9caaf0;
 }
 .bookmark.video.prio8, .actions button.video.prio8 {
-  background-color: #B0A3D6;
+  background-color: #b5c0f5;
 }
 .bookmark.video.prio10, .actions button.video.prio10 {
-  background-color: #CBC2E3;
+  background-color: #d4dbfa;
 }
 .bookmark.video.prio15, .actions button.video.prio15 {
-  background-color: #E1DDEC;
+  background-color: #f0f2ff;
 }
 .bookmark.audio.prio2, .actions button.audio.prio2 {
-  background-color: #E9D579;
+  background-color: #e6cb53;
 }
 .bookmark.audio.prio4, .actions button.audio.prio4 {
-  background-color: #F9EAA4;
+  background-color: #ebd36c;
 }
 .bookmark.audio.prio5, .actions button.audio.prio5 {
-  background-color: #F9EAA4;
+  background-color: #f0db89;
 }
 .bookmark.audio.prio8, .actions button.audio.prio8 {
-  background-color: #FDF2BA;
+  background-color: #f5eb9f;
 }
 .bookmark.audio.prio10, .actions button.audio.prio10 {
-  background-color: #FFF6CD;
+  background-color: #faeebe;
 }
 .bookmark.audio.prio15, .actions button.audio.prio15 {
-  background-color: #FFF9DD;
+  background-color: #ffffdb;
 }
 
 /*# sourceMappingURL=style.css.map */

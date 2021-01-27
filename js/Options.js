@@ -41,10 +41,12 @@ class Sorting extends React.Component {
         <span className="label">Sorting</span>
         <select value={this.props.sorting} onChange={this.setSorting.bind(this)}>
           <option value="">Sort by...</option>
-          <option value="title">Title</option>
-          <option value="url">URL</option>
           <option value="contentLengthInCharacters">Content length</option>
           <option value="-createdAt">Date added</option>
+          <option value="-priorityVale">Priority</option>
+          <option value="note">Note</option>
+          <option value="title">Title</option>
+          <option value="url">URL</option>
           <option value="tagName">Tag</option>
         </select>
       </div>

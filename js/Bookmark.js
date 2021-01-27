@@ -35,6 +35,11 @@ class Bookmark extends React.Component {
     this.setProperty('priorityValue', prio);
   }
 
+  setNote(evt) {
+
+    this.setProperty('note', evt.target.value);
+  }
+
   render() {
 
     const bookmark = this.props.data;
@@ -87,6 +92,7 @@ class Bookmark extends React.Component {
           <div className={'contentLength ' + lengthClass}>{bookmark.data().contentLengthInCharacters}</div>
           <div className="priority">{bookmark.data().priorityValue}</div>
           <div className="createdAt">{moment(bookmark.data().createdAt).format("DD.MM.YYYY")}</div>
+          <div className="note"><input type="text"value={bookmark.data().note} onChange={this.setNote.bind(this)} /></div>
         </div>
       </div>
     );
