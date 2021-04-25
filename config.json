@@ -1,7 +1,7 @@
 {
   "database": {
-    "createDatabase": false,
-    "enableLogging": false,
+    "createDatabase": true,
+    "enableLogging": true,
     "storagePath": "./data/db.sqlite3"
   },
 
@@ -15,13 +15,16 @@
   },
 
   "importer": {
-    "filePath": "./data/pocket/current.html"
+    "filePath": "./data/examples.txt"
   },
 
   "processor": {
     "contentPath": "./data/content/",
     "textContentPath": "./data/textcontent/",
-    "cleanOnStart": false,
+    "cleanOnStart": false
+  },
+
+  "requestManager": {
     "requestTimeout": 5000
   }
 }
